@@ -1,0 +1,140 @@
+.heading {
+    font-family: 'Kaisei HarunoUmi', serif;
+    font-weight: 700;
+    color: #87BB60;
+    font-size: 4.9rem;
+}
+
+.para {
+    font-size: 1.2rem;
+    margin: 0 auto;
+}
+
+
+.rotating-img {
+    width: 95%;
+    height: auto;
+    animation: floatSideways 2s linear infinite;
+}
+
+@keyframes floatUpDown {
+
+    0%,
+    100% {
+        transform: translateY(0);
+    }
+
+    50% {
+        transform: translateY(-15px);
+    }
+}
+
+@keyframes floatSideways {
+
+    0%,
+    100% {
+        transform: translateX(0);
+    }
+
+    50% {
+        transform: translateX(10px);
+    }
+}
+
+.first-img {
+    animation: floatUpDown 3s ease-in-out infinite;
+}
+
+.second-img {
+    animation: floatSideways 4s ease-in-out infinite;
+}
+
+.third-img {
+    position: absolute;
+    z-index: 27;
+    left: 15%;
+    top: -60px;
+    max-width: 80%;
+    animation: floatUpDown 4s ease-in-out infinite;
+}
+
+.fourth-img {
+    position: absolute;
+    z-index: 27;
+    bottom: -80px;
+    left: 0;
+    max-width: 70%;
+    animation: floatSideways 3s ease-in-out infinite;
+}
+
+
+@media (max-width: 992px) {
+    .heading {
+        font-size: 3rem;
+    }
+
+    .para {
+        font-size: 1rem;
+    }
+
+    .first-img,
+    .third-img {
+        left: 5%;
+        top: -20px;
+        max-width: 70%;
+    }
+
+    .second-img,
+    .fourth-img {
+        bottom: -40px;
+        max-width: 50%;
+    }
+}
+
+@media (max-width: 768px) {
+
+    .first-img,
+    .third-img {
+        position: relative;
+        top: 0;
+        left: 0;
+        display: block;
+        margin: 10px auto;
+    }
+
+    .second-img,
+    .fourth-img {
+        position: relative;
+        bottom: 0;
+        left: 0;
+        display: block;
+        margin: 10px auto;
+    }
+
+    .heading {
+        font-size: 2.5rem;
+    }
+
+    .para {
+        font-size: 0.9rem;
+        width: 100%;
+    }
+}
+
+
+/* @media (max-width: 992px) {
+
+    .first-img,
+
+    .third-img,
+    .fourth-img {
+        display: block !important;
+        z-index: 27 !important;
+        position: absolute;
+
+    }
+
+    .second-img {
+        display: none;
+    }
+} */

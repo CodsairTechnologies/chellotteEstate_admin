@@ -1,0 +1,96 @@
+<div class="p-3">
+    <div class="row  first-row mb-2">
+        <!-- breadcrumbs -->
+        <div class="col">
+            <div class="breadcrumb">
+                <span class="home-icon"><i class="bi bi-house-fill"></i></span>
+                <a href="/super-admin/listpoems" class="breadcrumb-item">Poems</a>
+                <span class="arrow-icon"><i class="bi bi-caret-right-fill"></i></span>
+                <a href="/super-admin/view-poem" class="breadcrumb-item">View-Poem</a>
+            </div>
+        </div>
+        <!-- breadcrumbs -->
+    </div>
+
+    <div class="card table-card mb-3">
+        <section *ngFor="let item of poems" class="poem-wrapper">
+
+            <!-- BANNER SECTION -->
+            <div class="container-fluid" *ngIf ="item.banner">
+                <div class="banner-container">
+                    <img [src]="item.banner" alt="Poem Banner" class="banner-img" />
+                    <div class="banner-text">{{ item.bannertitle }}</div>
+                </div>
+            </div>
+
+            <!-- CONTENT SECTION -->
+            <!-- <div class="container-fluid">
+                <div class="poem-content row gx-4 gy-4 mt-4">
+                    <div class="col-lg-9 content-column">
+                        <h2 class="poem-title">{{ item.name }}</h2>
+                        <p class="poem-subtitle">{{ item.subtitle }}</p>
+                        <p class="poem-description">{{ item.description }}</p>
+                    </div>
+
+                    <div class="col-lg-3 image-column">
+                        <img [src]="item.writerImage" class="img-fluid rounded writer-img" alt="{{ item.name }}" />
+                    </div>
+                </div>
+            </div> -->
+
+        </section>
+
+        <section class="poem-details" *ngFor="let item of poemDetails">
+
+            <!-- Title -->
+            <h2 class="poem-heading">{{ item.title }}</h2>
+
+            <!-- Meta + Icons -->
+            <div class="poem-meta-share">
+                <p class="poem-meta"> {{ item.name }} | {{ item.timestamp }}</p>
+
+                <!-- Share Icons -->
+                <!-- <div class="poem-share-icons">
+                    <i class="bi bi-whatsapp share-icon"></i>
+                    <i class="bi bi-facebook share-icon"></i>
+                </div> -->
+            </div>
+
+            <!-- ✅ Loop paragraphs after divider -->
+            <div class="extra-after-divider">
+                <p class="poem-paragraph" *ngFor="let para of item.extraAfterDivider">
+                    {{ para }}
+                </p>
+            </div>
+
+            <ng-container *ngFor="let contentItem of item.paragraphs">
+<div *ngIf="contentItem.type === 'html'" class="poem-paragraph" [innerHTML]="contentItem.data">
+                </div>
+                <!-- <img *ngIf="contentItem.type === 'image'" [src]="contentItem.data" alt="Poem image" class="poem-feature-img" />   -->
+            </ng-container>
+
+
+            <div class="author-section mt-5 p-2 border-top" *ngFor="let item of poems">
+                <div class="d-flex align-items-center mb-2">
+                    <!-- Author Image with default fallback -->
+                    <img [src]="item.writerImage || 'assets/images/userimg.png'" alt="{{ item.name }}"
+                        class="rounded-circle me-2 author-img" />
+            
+                    <!-- Name & Designation -->
+                    <div class="author-info">
+                        <h6 class="mb-0 author-name">{{ item.name }}</h6>
+                        <p class="mb-0 author-designation">{{ item.subtitle }}</p>
+                    </div>
+                </div>
+            
+                <!-- Description below -->
+                <p class="author-description mb-0">{{ item.description }}</p>
+            </div>
+
+        </section>
+    </div>
+</div>
+
+<div *ngIf="Loader" class="spinner-container">
+  <div class="spinner"></div>
+</div>

@@ -1,0 +1,467 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+section {
+    font-family: 'Roboto', sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background:  #222222;
+    position: relative;
+}
+
+.container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    max-width: 900px;
+    padding: 40px;
+}
+
+.login-card {
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+    background-color: #ffffff;
+    border-radius: 10px;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+}
+
+.card-left {
+    width: 50%;
+    overflow: hidden;
+}
+
+.card-left .image-cover img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+}
+
+.card-right {
+  width: 60%;
+  padding: 30px 20px; /* ✅ Less horizontal padding */
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+
+
+.title {
+    font-family: 'Poppins', sans-serif;
+    font-size: 48px;
+    text-align: center;
+    background: #15222F;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.welcome {
+    font-family: 'Poppins', sans-serif;
+    font-size: 15px;
+ margin-bottom: 20px;
+     text-align: center;
+    background: #00D8FF;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.input-group {
+    margin-bottom: 16px;
+}
+
+.input-group label {
+    display: block;
+    margin-bottom: 5px;
+    font-weight: bold;
+    font-family: 'Poppins', sans-serif;
+    color: #15222F;
+}
+
+.input-group input {
+    width: 100%;
+    padding: 10px;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+    font-family: 'Roboto', sans-serif;
+}
+
+.actions {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+.forgot-password-center {
+    text-align: center;
+    margin-top: 12px;
+}
+
+.forgot-password {
+    font-family: "Poppins", sans-serif;
+    font-size: 13px;
+    font-weight: 400;
+    color: #222222;
+    text-decoration: none;
+}
+
+.forgot-password:hover {
+    /* color: #028fa9; */
+    text-decoration: underline;
+}
+
+
+.actions .rememberme {
+    font-size: 14px;
+    color: #222222;;
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+.actions .rememberme:hover {
+    color: #464646;
+}
+
+
+  .remember-me {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 14px;
+    font-family: 'Poppins', sans-serif;
+    color: #15222F; 
+    padding: 8px;
+  }
+  
+  .remember-me input[type="checkbox"] {
+    appearance: none;
+    width: 16px;
+    height: 16px;
+    border: 2px solid #222222; 
+    border-radius: 4px;
+    background-color: white;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: background-color 0.3s ease, border-color 0.3s ease;
+  }
+  
+  .remember-me input[type="checkbox"]:checked {
+    background-color: #222222; 
+    border-color: #222222; 
+  }
+  
+  .remember-me input[type="checkbox"]:checked::after {
+    content: '✔';
+    color: white;
+    font-size: 14px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+.or-divider {
+    text-align: center;
+    margin: 20px 0;
+    font-size: 14px;
+    color: #999;
+}
+
+.google-signin .google-btn {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    padding: 10px;
+    background-color: #5AB7C6;
+    color: #ffffff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+.google-signin .google-btn:hover {
+    background-color: #6CB68E;
+    transform: scale(1.05);
+}
+
+.google-signin .google-btn .google-icon {
+    margin-right: 10px;
+}
+
+.create-account {
+    font-size: 12px;
+    text-transform: uppercase;
+    text-align: center;
+    margin-top: 20px;
+}
+
+.create-account a {
+    color: #5AB7C6;
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+.create-account a:hover {
+    color: #6CB68E;
+}
+
+.image-credit {
+    position: absolute;
+    bottom: 10px;
+    width: 100%;
+    text-align: center;
+    font-size: 12px;
+    color: #ccc;
+}
+
+.image-credit a {
+    color: #6CB68E;
+    text-decoration: none;
+}
+
+.image-credit a:hover {
+    text-decoration: underline;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+    .login-card {
+        flex-direction: column;
+    }
+
+    .card-left {
+        display: none;
+    }
+
+    .card-right {
+        width: 100%;
+        padding: 30px 72px;
+    }
+
+    .title {
+        font-size: 28px;
+    }
+
+    .welcome {
+        font-size: 18px;
+        margin-bottom: 30px;
+    }
+
+    .input-group input {
+        padding: 8px;
+    }
+
+    .actions .btn,
+    .google-signin .google-btn {
+        padding: 10px;
+        font-size: 14px;
+    }
+}
+
+/* Logo container styling */
+.logo-container {
+    display: flex;
+    justify-content: center;
+    align-items: center; /* optional: only needed if vertical centering inside a fixed height */
+margin-bottom: 12px;
+}
+.logo-container img {
+    max-width: 70%;
+    height: auto;
+}
+
+
+.form-controls label {
+    z-index: 1;
+    position: absolute;
+    margin-top: -8px;
+    margin-left: 19px;
+    background-color: white;
+    font-family: "Poppins", sans-serif;
+    font-weight: 400;
+    font-size: 13px;
+}
+
+.form-control {
+    font-size: 16px;
+    font-style: normal;
+    font-family: "Inter", sans-serif;
+    font-weight: 400;
+    background-color: #f5f4f4;
+    height: 47px;
+    padding: 5px;
+    /* border: none; */
+}
+
+
+.form-control::placeholder {
+    color: #c8c3c3;
+}
+
+.form-check-label {
+    color: #c8c3c3;
+    ;
+    font-size: 14px;
+    font-style: normal;
+    margin-top: 0;
+    text-align: left;
+    font-family: "Poppins", sans-serif;
+    font-weight: 400;
+}
+
+/* .forgot-password a {
+    font-family: "Poppins", sans-serif;
+    font-size: 11px;
+    font-weight: 400;
+    text-decoration: none;
+    justify-content: flex-end;
+    display: flex;
+} */
+
+
+.heading {
+    color: #fff;
+    font-size: 33px;
+    font-style: normal;
+    font-family: "Poppins", sans-serif;
+    font-weight: 500;
+}
+
+.small-heading {
+    color: #b6b5b5;
+    font-size: 14px;
+    font-style: normal;
+    font-family: "Poppins", sans-serif;
+    font-weight: 500;
+}
+
+
+.password-input-container {
+    position: relative;
+}
+
+.toggle-password-btn {
+    position: absolute;
+    right: 32px;
+    top: 50%;
+    transform: translateY(-50%);
+    border: none;
+    background: transparent;
+    cursor: pointer;
+}
+
+.form-check2 {
+    margin-left: 4rem;
+}
+
+.logo-img {
+    width: 40%;
+}
+
+.bi {
+    color: #c2bdbd;
+}
+
+
+.error-msg {
+    color: red;
+    font-size: 12px;
+    margin-top: -10px;
+}
+
+.is-invalid {
+    border-color: #dc3545 !important;
+}
+
+.is-invalid:hover {
+    border-color: #ff6666 !important;
+}
+
+.btn {
+    height: 49px;
+    width: 100%;
+    max-width: 100%;
+    font-size: 18px;
+    font-family: "Poppins", sans-serif;
+    font-weight: 700;
+    color: #fff;
+    border: none;
+    background: #69020B;
+    cursor: pointer;
+}
+
+.btn:hover {
+    /* background-color:#02aac7; */
+    color: #fff;
+        transform: scale(1.05);
+
+
+}
+
+.login-form {
+  width: 90%;
+  max-width: 450px; /* or 500px as needed */
+}
+
+/* ====================== */
+.modal-backdrop {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.4);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 9999;
+}
+
+.forgot-modal {
+  background: white;
+  padding: 30px;
+  border-radius: 10px;
+  width: 90%;
+  max-width: 400px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+}
+
+.modal-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 15px;
+}
+
+.modal-body input {
+  width: 100%;
+  padding: 10px;
+  margin-bottom: 10px;
+}
+
+.close-btn {
+  background: none;
+  border: none;
+  font-size: 24px;
+  cursor: pointer;
+}
+
+.modal-title {
+  font-size: 18px; 
+}
+
+

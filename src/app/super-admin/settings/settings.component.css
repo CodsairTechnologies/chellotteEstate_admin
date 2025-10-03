@@ -1,0 +1,567 @@
+
+*{
+        font-family: "Poppins", sans-serif;
+
+}/* css of breadcrumbs */
+.breadcrumb {
+    list-style: none;
+    padding: 10px;
+    margin: 0 0px 0 20px;
+}
+
+.breadcrumbs {
+    position: relative;
+    display: inline-block;
+}
+
+/* .breadcrumbs:not(:last-child)::after {
+    content: '';
+    display: inline-block;
+    width: 18px;
+    height: 10px;
+    background-image: url('data:image/svg+xml,%3Csvg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-chevron-right" viewBox="0 0 16 16"%3E%3Cpath fill-rule="evenodd" d="M4.646 1.646a.5.5 0 0 1 .708 0l6 6a.5.5 0 0 1 0 .708l-6 6a.5.5 0 0 1-.708-.708L10.293 8 4.646 2.354a.5.5 0 0 1 0-.708z"%3E%3C/path%3E%3C/svg%3E');
+    background-repeat: no-repeat;
+    background-position: center;
+    margin-left: 5px;
+} */
+
+
+.bi-house-door-fill {
+    color: rgb(0, 0, 0);
+    font-size: 17px;
+}
+
+.breadcrumb a {
+    text-decoration: none;
+    color: #000000;
+    font-size: 15px;
+    font-style: normal;
+    font-family: "Poppins", sans-serif;
+    font-weight: 500;
+}
+
+.first-row {
+    width: 100%;
+}
+
+.home-icon {
+    margin-right: 5px;
+}
+
+.arrow-icon {
+    margin: 0 5px;
+}
+
+.bi-chevron-right::before {
+    font-weight: bolder !important;
+    font-size: 15px;
+
+}
+.table-card {
+  padding: 24px;
+  border-radius: 12px;
+  border: 1px solid #e0e0e0;
+  background-color: #ffffff;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+  margin: 30px;
+}
+
+
+.modal-title{
+    font-size: 20px;
+    font-weight: 500;
+}
+.profile-wrapper {
+    display: flex;
+    justify-content: center;
+    margin-top: 40px;
+}
+
+.profile-box {
+    position: relative;
+    width: 120px;
+    height: 120px;
+}
+
+.profile-circle {
+    width: 100%;
+    height: 100%;
+    background-color: #000000;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 3rem;
+    font-weight: 600;
+    color: #ffffff;
+    border: 1px solid #000000;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+
+.profile-initial {
+    user-select: none;
+}
+
+.edit-btn {
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    width: 34px;
+    height: 34px;
+    border-radius: 50%;
+    border: none;
+    background-color: grey;
+    color: white;
+    font-size: 1rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.15);
+    cursor: pointer;
+    transition: background-color 0.3s, color 0.3s;
+}
+
+.edit-btn:hover {
+    transform: translateY(-2px);
+    background-color: #ffffff;
+    color: #000;
+}
+
+
+
+.bg-readonly {
+    background-color: #f8f9fa;
+    height: 46px;
+}
+
+/* .profile-container {
+    min-height: 450px;
+    padding: 20px;
+    border-radius: 10px;
+    background: white;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+
+} */
+
+.cursor-pointer {
+    cursor: pointer;
+}
+
+.form-group input.form-control {
+    width: 100%;
+    height: 46px;
+}
+
+.form-group {
+    padding-bottom: 8px;
+}
+
+
+.profile-icon {
+    width: 100px;
+    /* Increased from 40px */
+    height: 100px;
+    /* Increased from 40px */
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: bold;
+    background-color: #FBE0EC;
+    margin-right: 10px;
+}
+
+
+.profile-letter {
+    font-weight: bold;
+    color: #b69351;
+    font-size: 48px;
+}
+
+/* Profile Header */
+.profile-header {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    margin-bottom: 2rem;
+    padding-bottom: 1rem;
+    /* border-bottom: 1px solid #eee; */
+}
+
+
+.profile-header h4 {
+    margin: 0;
+    color: #333;
+}
+
+/* Form spacing and input style */
+.form-group {
+    margin-bottom: 2rem;
+    /* increased spacing between rows */
+}
+
+/* Label Style */
+.form-label {
+    font-weight: 600;
+    font-size: 16px;
+    color: #333;
+}
+
+/* Input control enhancements */
+.form-control[readonly] {
+    background-color: #f0f0f0;
+    /* Gray for readonly */
+    border-color: #ccc;
+    height: 46px;
+}
+
+.form-control:focus {
+    background-color: #fff !important;
+    /* White on edit */
+}
+
+/* Input size */
+.form-control {
+    width: 100%;
+    max-width: 500px;
+    /* wider input */
+    height: 46px;
+}
+
+/* Edit icon */
+.edit-icon {
+    font-size: 1.2rem;
+    color: #6c757d;
+    cursor: pointer;
+    transition: color 0.3s ease;
+}
+
+.edit-icon:hover {
+    color: #C5A059;
+}
+
+.change-password-btn {
+    background-color: #ffffff !important;
+    color: #C5A059 !important;
+    border: 2px solid #C5A059 !important;
+    padding: 0.6rem 1.5rem;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background 0.3s, color 0.3s;
+    width: 100%;
+    max-width: 220px;
+}
+
+.change-password-btn:hover {
+    background-color: #C5A059 !important;
+    color: #ffffff !important;
+}
+
+.submit-btn {
+    background: #C5A059 !important;
+    color: white !important;
+    border: none;
+    padding: 0.6rem 1.5rem;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background 0.3s;
+    width: 100%;
+    max-width: 220px;
+    /* wider button */
+}
+
+.submit-btn:hover {
+    background: #c19442 !important;
+}
+
+
+
+.detail-section {
+    margin-bottom: 1.5rem;
+}
+
+.detail-section h3 {
+    color: #C5A059;
+    font-size: 1.1rem;
+    margin-bottom: 0.5rem;
+}
+
+.detail-item {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0.75rem 1rem;
+    background: #f8f9fa;
+    border-radius: 4px;
+}
+
+.detail-value {
+    color: #333;
+}
+
+
+.password-form {
+    padding: 1rem 0;
+}
+
+
+.form-group label {
+    display: block;
+    margin-bottom: 0.5rem;
+    color: #555;
+}
+
+.edit-icon {
+    font-size: 1.2rem;
+    color: #6c757d;
+    cursor: pointer;
+    transition: color 0.3s ease;
+}
+
+.edit-icon:hover {
+    color: #C5A059;
+}
+
+
+
+/* Error message styling */
+.error-msg {
+    font-size: 12px;
+    border-radius: 5px;
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    color: #842029;
+    background-color: #f8d7da;
+    padding: 6px 8px;
+    border-left: 4px solid #dc3545;
+    animation: fadeIn 0.3s ease-in-out;
+}
+
+/* Error message styling */
+
+
+
+/* Delete Modal Styling */
+::ng-deep .p-dialog .p-dialog-header {
+    border-bottom: 1px solid #e0e0e0;
+    padding: 1rem;
+    font-size: 16px;
+}
+
+::ng-deep .p-dialog .p-dialog-content {
+    padding: 1.5rem;
+}
+
+/* Header Styling */
+.delete-title {
+    color: #C5A059 !important;
+    font-weight: 600;
+    font-size: 1.2rem;
+}
+
+/* Close (Cancel) Button */
+.close-btn {
+    color: #C5A059 !important;
+    background: white !important;
+    border: 1px solid #C5A059 !important;
+    padding: 0.5rem 1.5rem;
+    border-radius: 6px;
+    transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+    position: relative;
+    overflow: hidden;
+}
+
+.close-btn:hover {
+    background: #f8f8f8 !important;
+    box-shadow: 0 2px 8px rgba(237, 20, 115, 0.2);
+    transform: translateY(-1px);
+}
+
+.close-btn:active {
+    transform: translateY(0);
+    box-shadow: 0 1px 4px rgba(237, 20, 115, 0.2);
+}
+
+/* Delete Button */
+.btn-delete {
+    color: white !important;
+    background: #C5A059 !important;
+    border: 1px solid #C5A059 !important;
+    padding: 0.5rem 1.5rem;
+    border-radius: 6px;
+    transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+    position: relative;
+    overflow: hidden;
+}
+
+.btn-delete:hover {
+    background: #C5A059 !important;
+    border-color: #C5A059 !important;
+    box-shadow: 0 4px 12px rgba(237, 20, 115, 0.3);
+    transform: translateY(-1px);
+}
+
+.btn-delete:active {
+    transform: translateY(0);
+    box-shadow: 0 2px 6px rgba(237, 20, 115, 0.3);
+}
+
+/* Ripple Effect for Both Buttons */
+.close-btn::after,
+.btn-delete::after {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 5px;
+    height: 5px;
+    background: rgba(255, 255, 255, 0.5);
+    opacity: 0;
+    border-radius: 100%;
+    transform: scale(1, 1) translate(-50%);
+    transform-origin: 50% 50%;
+}
+
+.close-btn:hover::after,
+.btn-delete:hover::after {
+    animation: ripple 1s ease-out;
+}
+
+@keyframes ripple {
+    0% {
+        transform: scale(0, 0);
+        opacity: 0.5;
+    }
+
+    100% {
+        transform: scale(20, 20);
+        opacity: 0;
+    }
+}
+
+/* Warning Icon */
+.bi-exclamation-triangle-fill {
+    color: #C5A059;
+    font-size: 1.2rem;
+    animation: pulse 2s infinite;
+}
+
+@keyframes pulse {
+    0% {
+        transform: scale(1);
+    }
+
+    50% {
+        transform: scale(1.1);
+    }
+
+    100% {
+        transform: scale(1);
+    }
+}
+
+/* Dialog Width Adjustment */
+@media (max-width: 992px) {
+    ::ng-deep .p-dialog {
+        width: 75vw !important;
+    }
+}
+
+/* Dialog footer */
+:host ::ng-deep .p-dialog .p-dialog-footer {
+    /* border-top: 1px solid #e5e7eb; */
+    padding: 1rem 1.5rem;
+    /* background: #f8fafc; */
+    text-align: right;
+}
+
+:host ::ng-deep .p-dialog .p-dialog-header {
+    background: #f8fafc;
+    border-bottom: 1px solid #e5e7eb;
+    padding: 0.5rem 1.5rem !important;
+    /* Reduced from default 1.25rem */
+}
+
+:host ::ng-deep .p-dialog .p-dialog-footer {
+    border-top: none !important;
+    padding: 1rem 1.5rem;
+}
+
+
+.password-form .form-control {
+    padding-right: 40px;
+    border-radius: 10px;
+    height: 46px;
+}
+
+.password-form .bi-eye,
+.password-form .bi-eye-slash {
+    position: absolute;
+    top: 38px;
+    right: 15px;
+    cursor: pointer;
+    font-size: 1.1rem;
+    color: #999;
+}
+
+
+.password-wrapper {
+    position: relative;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.password-display {
+    flex: 1;
+    height: 40px;
+    border-radius: 8px;
+    border: 1px solid #ccc;
+    padding: 0 40px 0 10px;
+    background-color: #f5f5f5;
+    font-size: 16px;
+}
+
+.password-wrapper .bi {
+    position: absolute;
+    right: 100px;
+    /* Adjust based on button width */
+    top: 50%;
+    transform: translateY(-50%);
+    cursor: pointer;
+    color: #333;
+    font-size: 1.2rem;
+}
+
+.custom-dialog-header {
+    padding: 10px 10px;
+    background-color: #f8f9fa;
+}
+
+.dialog-title {
+    font-size: 20px;
+    font-weight: 500;
+    margin: 0;
+}
+
+.update-profile-btn {
+    padding: 10px 24px;
+    background-color: #e0f0ff;
+    /* Light sky blue */
+    color: #007bff;
+    /* Primary blue text */
+    border: 1px solid #b3d9ff;
+    border-radius: 6px;
+    font-weight: 500;
+    font-size: 14px;
+    transition: background-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.update-profile-btn:hover {
+    background-color: #cce5ff;
+    box-shadow: 0 3px 8px rgba(0, 123, 255, 0.2);
+    cursor: pointer;
+}

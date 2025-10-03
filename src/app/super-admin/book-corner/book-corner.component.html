@@ -1,0 +1,215 @@
+<div class="p-3">
+    <div class="row  first-row mb-2">
+        <!-- breadcrumbs -->
+        <div class="col">
+            <div class="breadcrumb">
+                <span class="home-icon"><i class="bi bi-house-fill"></i></span>
+                <a href="/super-admin/bookcorner" class="breadcrumb-item">Bookcorner</a>
+            </div>
+        </div>
+        <!-- breadcrumbs -->
+
+        <!-- button -->
+        <div class="col">
+            <div class="justify-content-end d-flex">
+                <button pButton type="button" label="+Add" class="btn button"
+                    (click)="openCategoryModal(false)"></button>
+            </div>
+        </div>
+        <!-- button -->
+    </div>
+
+    <div class="card table-card mb-3">
+        <app-table [arrList]="arrList" [arrColumns]="arrColumns" [blnForDelete]="blnForDelete" [blnNoEdit]="blnNoEdit"
+            [blnHasSingleview]="blnHasSingleview" (objPresentationEvent)="eventFromTable($event)">
+        </app-table>
+    </div>
+</div>
+
+
+
+<p-dialog [(visible)]="OpenModal" [modal]="true" [style]="{width: '45vw'}" [baseZIndex]="10000" [draggable]="false"
+    [resizable]="false" [header]="modalHeader">
+
+    <div class="modal-body">
+        <form [formGroup]="BookcornerForm" class="p-3">
+            <!-- Title & Author (Side by Side) -->
+            <!-- Book Title Row -->
+            <div class="row mb-3">
+                <div class="col-md-12">
+                    <label class="form-label">Book Title <span class="required">*</span></label>
+                    <input type="text" class="form-control" formControlName="title" placeholder="Enter Book title">
+                    <div *ngIf="BookcornerForm.get('title')?.invalid && BookcornerForm.get('title')?.touched">
+                        <p class="error-msg2">Title is required!</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Author Name Row -->
+            <div class="row mb-3">
+                <div class="col-md-12">
+                    <label class="form-label">Author Name <span class="required">*</span></label>
+                    <input type="text" class="form-control" formControlName="author" placeholder="Enter Author name">
+                    <div *ngIf="BookcornerForm.get('author')?.invalid && BookcornerForm.get('author')?.touched">
+                        <p class="error-msg2">Author name is required!</p>
+                    </div>
+                </div>
+            </div>
+
+
+            <!-- Image & Short Description Side by Side -->
+            <div class="row mb-3 align-items-start">
+                <!-- Book Cover Image -->
+                <div class="col-md-4">
+                    <label class="form-label">Book Cover Image <span class="required">*</span></label>
+                    <div class="img-card card">
+                        <div *ngIf="!showImageBox">
+                            <button type="button" class="btn uploadbtn w-100" (click)="selectfile.click()">Choose
+                                Image</button>
+                            <input type="file" class="form-control d-none" (change)="onFileUpload($event)" #selectfile
+                                accept="image/*">
+                        </div>
+
+                        <div *ngIf="showImageBox" class="img-div position-relative">
+                            <img *ngIf="fileType.startsWith('image/')" [src]="imagePreview" class="img-thumbnail w-100"
+                                style="height: 210px; object-fit: cover;" />
+                            <div class="bi bi-x-circle-fill position-absolute top-0 end-0" (click)="clearCard()"></div>
+                        </div>
+                    </div>
+                    <div class="error-msg2 mt-2"
+                        *ngIf="BookcornerForm.get('image')?.invalid && BookcornerForm.get('image')?.touched">
+                        <p class="error-msg2">Image is required!</p>
+                    </div>
+                </div>
+
+                <!-- Short Description -->
+                <div class="col-md-8">
+                    <label class="form-label">Short Description <span class="required">*</span></label>
+                    <textarea rows="9" class="form-control" formControlName="description"
+                        placeholder="Enter short description about the book"></textarea>
+                    <div
+                        *ngIf="BookcornerForm.get('description')?.invalid && BookcornerForm.get('description')?.touched">
+                        <p class="error-msg2">Short description is required!</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Link -->
+            <div class="mb-3">
+                <label class="form-label">Link <span class="required">*</span></label>
+                <input type="text" class="form-control" formControlName="link" placeholder="Enter link">
+                <div *ngIf="BookcornerForm.get('link')?.invalid && BookcornerForm.get('link')?.touched">
+                    <p class="error-msg2">Link is required!</p>
+                </div>
+            </div>
+
+            <!-- Spotlight Checkbox -->
+            <div class="form-check mb-3">
+                <input type="checkbox" class="form-check-input" id="spotlightCheck" formControlName="spotlight">
+                <label class="form-check-label" for="spotlightCheck">Add to Spotlight <span class="required">*</span></label>
+            </div>
+        </form>
+
+    </div>
+
+    <ng-template pTemplate="footer">
+        <button type="submit" pButton (click)="handleCategoryOperation()" class="submit-btn">Save</button>
+    </ng-template>
+</p-dialog>
+
+<p-dialog
+  [(visible)]="displaySingleViewModal"
+  header="Book Details"
+  [modal]="true"
+  [style]="{ width: '50vw' }"
+  [closable]="true"
+  [dismissableMask]="true"
+  [baseZIndex]="10000"
+  class="single-view-dialog"
+>
+  <form class="p-3">
+    <!-- Book Title & Author Name Row -->
+    <div class="row mb-3">
+      <div class="col-md-6">
+        <label class="form-label">Book Title</label>
+        <input type="text" class="form-control" [value]="selectedBookcorner?.booktitle" readonly />
+      </div>
+      <div class="col-md-6">
+        <label class="form-label">Author Name</label>
+        <input type="text" class="form-control" [value]="selectedBookcorner?.writername" readonly />
+      </div>
+    </div>
+
+    <!-- Image & Description Row -->
+    <div class="row mb-3 align-items-start">
+      <div class="col-md-4">
+        <label class="form-label">Book Cover Image</label>
+        <div class="img-card card p-2">
+          <img
+            *ngIf="selectedBookcorner?.bookcoverimage"
+            [src]="getImageUrl(selectedBookcorner?.bookcoverimage)"
+            class="img-fluid rounded"
+            style="max-height: 250px; width: 100%; object-fit: contain;"
+          />
+        </div>
+      </div>
+
+      <div class="col-md-8">
+        <label class="form-label">Short Description</label>
+        <textarea rows="9" class="form-control" readonly>{{ selectedBookcorner?.content }}</textarea>
+      </div>
+    </div>
+
+    <!-- Link Row -->
+    <div class="row mb-3">
+      <div class="col-md-12">
+        <label class="form-label">Link</label>
+        <input type="text" class="form-control" [value]="selectedBookcorner?.link" readonly />
+      </div>
+    </div>
+
+    <!-- Spotlight & Status Row -->
+    <div class="row mb-3">
+      <div class="col-md-6">
+        <label class="form-label">Spotlight</label>
+        <input
+          type="text"
+          class="form-control"
+          [value]="selectedBookcorner?.isspotlight === 'Yes' ? 'Yes' : 'No'"
+          readonly
+        />
+      </div>
+     
+    </div>
+  </form>
+</p-dialog>
+
+
+
+
+
+<p-dialog [(visible)]="deleteModal" [modal]="true" [style]="{width: '35vw'}" [baseZIndex]="10000" [draggable]="false"
+    [resizable]="false">
+    <ng-template pTemplate="header">
+        <div class="d-flex align-items-center">
+            <i class="bi bi-exclamation-triangle"></i>
+            <span>Delete Bookcorner</span>
+        </div>
+    </ng-template>
+
+    <div>
+        <p class="justify-content-center d-flex mt-3 delete-para">Are you sure you want to delete this Bookcorner?</p>
+    </div>
+
+    <ng-template pTemplate="footer">
+        <div class="justify-content-center d-flex">
+            <button type="button" pButton class=" close-btn"
+                (click)="deleteModal = false">Close</button>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            <button type="button" pButton class=" delete-btn" (click)="deleteFn()">Delete</button>
+        </div>
+    </ng-template>
+</p-dialog>
+
+<div *ngIf="Loader" class="spinner-container">
+  <div class="spinner"></div>
+</div>

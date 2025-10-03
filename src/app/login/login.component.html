@@ -1,0 +1,116 @@
+<section>
+    <div class="container">
+        <div class="login-card">
+            <div class="card-left">
+                <div class="image-cover">
+                    <img src="assets/images/login.png" alt="Decorative Image">
+                </div>
+            </div>
+            <div class="card-right">
+                <!-- Logo container -->
+                <div class="logo-container">
+                    <img src="assets/images/new.png" alt="Logo">
+                </div>
+                <!-- <h1 class="title">Mankind</h1> -->
+                <h2 class="welcome">Please login to your account</h2>
+                <!-- Login form -->
+                <form [formGroup]="loginForm" (ngSubmit)="Login()" class="login-form">
+                    <!-- Username Field -->
+                    <div class="mb-3 form-controls">
+                        <input type="text" class="form-control"
+                            [ngClass]="{'is-invalid': loginForm.get('Username')?.invalid && loginForm.get('Username')?.touched}"
+                            name="username" id="username" placeholder="Username" formControlName="Username"
+                            (keydown.enter)="focusPassword()">
+                    </div>
+
+                    <div class="error-msg mb-3"
+                        *ngIf="loginForm.get('Username')?.errors && loginForm.get('Username')?.touched">
+                        <p>Username is required!</p>
+                    </div>
+
+                    <!-- Password Field -->
+                    <div class="mb-3 form-controls">
+                        <div class="password-input-container">
+                            <input class="form-control"
+                                [ngClass]="{'is-invalid': loginForm.get('Password')?.invalid && loginForm.get('Password')?.touched}"
+                                type="{{ showPassword ? 'text' : 'password' }}" name="password" id="password"
+                                placeholder="Password" formControlName="Password">
+                            <button class="toggle-password-btn" type="button" (click)="togglePasswordVisibility()">
+                                <i class="bi" [ngClass]="showPassword ? 'bi-eye-slash-fill' : 'bi-eye'"></i>
+                            </button>
+                        </div>
+                    </div>
+
+                    <div class="error-msg mb-3"
+                        *ngIf="loginForm.get('Password')?.errors && loginForm.get('Password')?.touched">
+                        <p>Password is required!</p>
+                    </div>
+
+                    <div class="actions">
+                        <div class="remember-me">
+                            <input type="checkbox" id="remember" formControlName="rememberMe" />
+                            <label for="remember" class="rememberme">Remember me</label>
+                        </div>
+                    </div>
+
+                    <!-- Login Button -->
+                    <div class="button">
+                        <button type="submit" class="btn">Login</button>
+                    </div>
+
+                    <!-- Centered forgot password -->
+                    <div class="forgot-password-center">
+                        <!-- <a href="/forgot-password" class="forgot-password">Forgot Password?</a> -->
+                        <div class="forgot-password-center">
+                            <a href="javascript:void(0)" class="forgot-password" (click)="openForgotModal()">Forgot
+                                Password?</a>
+                        </div>
+
+                    </div>
+
+
+
+                    <!-- Error Message -->
+                    <div class="text-danger mt-2" *ngIf="errorMessage">{{ errorMessage }}</div>
+                </form>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Forgot Password Modal -->
+<div class="modal-backdrop" *ngIf="showForgotModal">
+    <div class="forgot-modal">
+        <div class="modal-header">
+            <h3 class="modal-title" *ngIf="modalStep === 1">Forgot Password</h3>
+            <h3 class="modal-title" *ngIf="modalStep === 2">Verify OTP</h3>
+            <h3 class="modal-title" *ngIf="modalStep === 3">Reset Password</h3>
+
+            <button class="close-btn" (click)="closeModal()">×</button>
+        </div>
+
+        <!-- Step 1: Enter Email -->
+        <div class="modal-body" *ngIf="modalStep === 1">
+            <input type="email" [(ngModel)]="forgotEmail" placeholder="Enter your Email ID" class="form-control" />
+            <button class="btn mt-3" (click)="submitForgotPassword()">Send OTP</button>
+        </div>
+
+        <!-- Step 2: Enter OTP -->
+        <div class="modal-body" *ngIf="modalStep === 2">
+            <input type="text" [(ngModel)]="otp" placeholder="Enter OTP" class="form-control" />
+            <button class="btn mt-3" (click)="submitOtpVerification()">Verify OTP</button>
+        </div>
+
+        <!-- Step 3: Reset Password -->
+        <div class="modal-body" *ngIf="modalStep === 3">
+            <input type="password" [(ngModel)]="newPassword" placeholder="New Password" class="form-control mb-2" />
+            <input type="password" [(ngModel)]="confirmPassword" placeholder="Confirm Password" class="form-control" />
+            <button class="btn mt-3" (click)="submitNewPassword()">Change Password</button>
+        </div>
+    </div>
+</div>
+
+
+<div *ngIf="Loader" class="spinner-container">
+    <div class="spinner"></div>
+</div>

@@ -1,0 +1,33 @@
+<div class="p-3">
+    <div class="row  first-row mb-2">
+        <!-- breadcrumbs -->
+        <div class="col">
+            <div class="breadcrumb">
+                <span class="home-icon"><i class="bi bi-house-fill"></i></span>
+                <!-- <a href="/super-admin/Dashboard" class="breadcrumb-item">Dashboard</a>
+                <span class="arrow-icon"><i class="bi bi-caret-right-fill"></i></span> -->
+                <a href="/super-admin/enquiry" class="breadcrumb-item">Enquiry</a>
+            </div>
+        </div>
+        <!-- breadcrumbs -->
+
+        <!-- button -->
+        <!-- <div class="col">
+            <div class="justify-content-end d-flex">
+                <button pButton type="button" label="+Add" class="btn button"
+                    (click)="naviagteTo()"></button>
+            </div>
+        </div> -->
+        <!-- button -->
+    </div>
+
+    <div class="card table-card mb-3">
+        <app-table [arrList]="arrList" [arrColumns]="arrColumns" [blnForDelete]="blnForDelete" [blnNoEdit]="blnNoEdit"
+            [blnHasSingleview]="blnHasSingleview" (objPresentationEvent)="eventFromTable($event)">
+        </app-table>
+    </div>
+</div>
+
+<div *ngIf="Loader" class="spinner-container">
+  <div class="spinner"></div>
+</div>

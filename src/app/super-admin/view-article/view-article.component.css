@@ -1,0 +1,468 @@
+/* css of breadcrumbs */
+.breadcrumb {
+    list-style: none;
+    padding: 10px;
+    margin: 0 0px 0 20px;
+}
+
+.breadcrumbs {
+    position: relative;
+    display: inline-block;
+}
+
+/* .breadcrumbs:not(:last-child)::after {
+    content: '';
+    display: inline-block;
+    width: 18px;
+    height: 10px;
+    background-image: url('data:image/svg+xml,%3Csvg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-chevron-right" viewBox="0 0 16 16"%3E%3Cpath fill-rule="evenodd" d="M4.646 1.646a.5.5 0 0 1 .708 0l6 6a.5.5 0 0 1 0 .708l-6 6a.5.5 0 0 1-.708-.708L10.293 8 4.646 2.354a.5.5 0 0 1 0-.708z"%3E%3C/path%3E%3C/svg%3E');
+    background-repeat: no-repeat;
+    background-position: center;
+    margin-left: 5px;
+} */
+
+
+.bi-house-door-fill {
+    color: rgb(0, 0, 0);
+    font-size: 17px;
+}
+
+.breadcrumb a {
+    text-decoration: none;
+    color: #000000;
+    font-size: 15px;
+    font-style: normal;
+    font-family: "Poppins", sans-serif;
+    font-weight: 500;
+}
+
+.first-row {
+    width: 100%;
+}
+
+.home-icon {
+    margin-right: 5px;
+}
+
+.arrow-icon {
+    margin: 0 5px;
+}
+
+.bi-chevron-right::before {
+    font-weight: bolder !important;
+    font-size: 15px;
+
+}
+
+
+.table-card {
+    border-radius: 0;
+    margin: 30px;
+}
+
+.button {
+    background-color: #000000 !important;
+    color: #fff;
+    font-size: 16px;
+    font-style: normal;
+    font-family: "Poppins", sans-serif;
+    font-weight: 500;
+    border: none;
+    height: 40px;
+    border-radius: 5px;
+    width: 15%;
+}
+
+
+.button:hover {
+    background-color: #383838 !important;
+    color: white !important;
+}
+
+
+/* css of breadcrumbs */
+
+body,
+html {
+    height: 100%;
+    margin: 0;
+    overflow-x: hidden;
+    font-family: sans-serif;
+    background-color: #fef7f2;
+    /* optional light background */
+}
+
+.poem-wrapper {
+    padding-bottom: 1rem;
+    /* padding: 2rem 1rem; */
+    /* max-width: 960px; */
+    margin: 0 auto;
+    /* font-family: 'Segoe UI', sans-serif; */
+}
+
+.container {
+    max-width: 1440px;
+    margin: 0 auto;
+    padding: 0 30px;
+}
+
+.banner-img {
+    width: 100%;
+    /* height: auto; */
+    /* height: 200px; */
+    margin-top: 3rem;
+}
+
+
+.banner-container {
+    position: relative;
+    width: 100%;
+}
+
+.banner-divider {
+    border: none;
+    border-top: 1px solid #D6CECE;
+    margin: 1.5rem 0;
+}
+
+
+.banner-text {
+    font-family: Poppins;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    color: #FFFFFF;
+    font-size: 38px;
+    font-weight: 600;
+    padding: 0.5rem 1.5rem;
+    border-radius: 8px;
+    text-align: center;
+    white-space: nowrap;
+}
+
+/* Responsive Tweaks */
+@media (max-width: 768px) {
+    .banner-text {
+        font-size: 1.5rem;
+        padding: 0.4rem 1rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .banner-text {
+        font-size: 1.1rem;
+        padding: 0.3rem 0.8rem;
+    }
+}
+
+
+.poem-title {
+    color: #2B2B2B;
+    font-family: Playfair Display;
+    font-weight: 600;
+    font-size: 40px;
+    line-height: 100%;
+    letter-spacing: 0%;
+    margin-bottom: 1rem;
+}
+
+@media (max-width: 768px) {
+    .poem-title {
+        font-size: 31px;
+    }
+}
+
+@media (max-width: 768px) {
+    .poem-subtitle {
+        font-size: 20px !important;
+    }
+}
+
+.poem-subtitle {
+    font-style: Playfair Display;
+    color: #2B2B2B;
+    font-weight: 500;
+    font-size: 25px;
+    margin-bottom: 2rem;
+    line-height: 1.2;
+}
+
+.poem-description {
+    font-family: Poppins;
+    font-weight: 400;
+    font-size: 15px;
+    /* line-height: 27px; */
+    letter-spacing: 0%;
+    color: #2B2B2B;
+    /* text-align: justify; */
+}
+
+@media (max-width: 768px) {
+    .poem-description {
+        font-size: 13px;
+    }
+}
+
+@media (min-width: 576px) and (max-width: 991.98px) {
+    .poem-subtitle {
+        font-size: 25px;
+        line-height: 1.2;
+    }
+}
+
+
+
+.writer-img {
+    width: 364px;
+    height: 368px;
+    object-fit: cover;
+}
+
+@media (max-width: 767.98px) {
+    .poem-content {
+        display: flex;
+        flex-direction: column;
+    }
+
+    .image-column {
+        order: 1;
+        margin-bottom: 1rem;
+        display: flex;
+        justify-content: center;
+    }
+
+    .content-column {
+        order: 2;
+    }
+
+    .writer-img {
+        width: 364px;
+        height: 368px;
+        max-width: 400px;
+    }
+}
+
+@media (max-width: 991.98px) {
+    .writer-img {
+        width: 364px;
+        height: 368px;
+        margin-bottom: 1rem;
+    }
+
+    .image-column {
+        text-align: center;
+    }
+}
+
+/*  */
+.poem-details {
+    padding: 2rem 1rem;
+    max-width: 960px;
+    margin: 0 auto;
+    font-family: 'Segoe UI', sans-serif;
+}
+
+.poem-heading {
+    color: #2B2B2B;
+    /* font-size: 36px; */
+    font-weight: 600;
+    line-height: 100%;
+    letter-spacing: 0%;
+    font-family: Poppins;
+    margin-bottom: 0.5rem;
+}
+
+.poem-meta-share {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    padding: 1rem 0;
+    border-bottom: 1px solid #e0dede;
+    margin: 2rem 0;
+}
+
+
+.poem-meta {
+    font-family: Poppins;
+    color: #9B9393;
+    font-weight: 400;
+    font-size: 16px;
+    margin: 0;
+}
+
+.poem-share-icons {
+    display: flex;
+    gap: 1rem;
+}
+
+
+.share-icon {
+    font-size: 1.2rem;
+    color: #ffffff;
+    background-color: #55DAF2;
+    padding: 10px;
+    border-radius: 4px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 36px;
+    height: 36px;
+    transition: transform 0.2s, background-color 0.2s;
+}
+
+.share-icon:hover {
+    background-color: #40cde4;
+    transform: scale(1.1);
+}
+
+.poem-subtext {
+    font-size: 15px;
+    font-weight: 400;
+    font-family: Poppins;
+    color: #2B2B2B;
+    margin-bottom: 12px;
+}
+
+@media (max-width: 768px) {
+    .poem-subtext {
+        font-size: 13px;
+    }
+}
+
+.poem-paragraph {
+    font-family: Poppins;
+    font-size: 15px;
+    font-weight: 400;
+    color: #2B2B2B;
+    margin-bottom: 1.25rem;
+    letter-spacing: 0%;
+    line-height: 1.6;
+}
+
+.poem-paragraph {
+    white-space: normal;
+    word-break: keep-all;
+    overflow-wrap: break-word;
+    line-break: strict;
+}
+
+
+@media (max-width: 768px) {
+    .poem-paragraph {
+        font-size: 13px;
+    }
+}
+
+.poem-feature-img {
+    width: 936px;
+    height: 323px;
+    margin: 1.5rem 0;
+}
+
+@media (max-width: 992px) {
+    .poem-feature-img {
+        width: 100%;
+        height: auto;
+    }
+}
+
+@media (max-width: 576px) {
+    .poem-feature-img {
+        width: 100%;
+        height: auto;
+        margin: 1rem 0;
+    }
+}
+
+
+::ng-deep .poem-paragraph img {
+    width: 100%;
+    height: auto;
+    display: block;
+    margin: 1rem 0;
+}
+
+.star-rating {
+    color: gold;
+    font-size: 0.9rem;
+    margin-left: 5px;
+}
+
+.poem-paragraph ul {
+    padding-left: 20px;
+    list-style-type: disc;
+}
+
+.poem-paragraph li {
+    margin-bottom: 5px;
+}
+
+.poem-paragraph ul {
+    list-style-type: disc !important;
+    /* force bullet points */
+    padding-left: 20px !important;
+    /* space for bullets */
+    margin-left: 0;
+}
+
+.poem-paragraph li {
+    display: list-item !important;
+    /* ensure li acts like a list item */
+}
+
+
+::ng-deep .poem-paragraph pre {
+    font-family: inherit;
+    background: none;
+    padding: 0;
+    margin: 0;
+    white-space: pre-wrap;
+    /* allow wrapping */
+    word-break: break-word;
+    /* break very long words */
+    overflow-wrap: anywhere;
+    /* newer spec, ensures wrap */
+    display: block;
+    /* restores a normal block element */
+    width: 100%;
+    /* ensures it fits container */
+    font-family: Poppins;
+    font-size: 15px;
+    font-weight: 400;
+}
+
+
+
+/* author section */
+
+.author-section {
+    font-family: 'Arial', sans-serif;
+    border-top: 1px solid #ccc;  
+    padding-top: 0.5rem;
+    padding-bottom: 0.5rem;
+}
+
+.author-section .author-img {
+    width: 50px;   
+    height: 50px;
+    object-fit: cover;
+}
+
+.author-section .author-name {
+    font-weight: 500;
+    font-size: 0.9rem;  
+    color: #222;
+}
+
+.author-section .author-designation {
+    font-size: 0.8rem;  /* smaller font */
+    color: #666;
+}
+
+.author-section .author-description {
+    font-size: 0.7rem;
+    color: #444;
+    margin-top: 0.25rem;
+}

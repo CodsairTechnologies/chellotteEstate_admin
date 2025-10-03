@@ -1,0 +1,289 @@
+<ng-container class="app-container">
+    <div class="sidebar close" [ngClass]="{'close': isSidebarClosed}">
+        <div class="logo-details" class="ml-2 mt-5">
+            <div class="menu-logo">
+                <img src="\assets\images\new.png" alt="Logo">
+            </div>
+        </div>
+
+
+        <!-- <ul class="nav-links mt-5">
+            
+
+            <li class="line">
+                <a href="/super-admin/banner">
+                    <i class="bi bi-house-check-fill"></i>
+                    <span class="link_name">Home Banner</span>
+                </a>
+                <ul class="sub-menu blank">
+                    <li><a class="link_name" href="/super-admin/banner">Home Banner</a></li>
+                </ul>
+            </li>
+
+            <li class="line">
+                <a href="/super-admin/letusbanner">
+                    <i class="bi bi-card-image"></i>
+                    <span class="link_name">Readers Forum Banner</span>
+                </a>
+                <ul class="sub-menu blank">
+                    <li><a class="link_name" href="/super-admin/letusbanner">Readers Forum Banner</a></li>
+                </ul>
+            </li>
+
+            <li>
+                <div class="icon-link" (click)="toggleCollapse(2)">
+                    <a>
+                        <i class="bi bi-bookmark-star-fill"></i>
+                        <span class="link_name">Book Reviews</span>
+                    </a>
+                    <i class='bx bxs-chevron-down arrow'></i>
+                </div>
+                <ul class="sub-menu" [ngClass]="{ 'show': isCollapsed[2] }">
+                    <li><a class="link_name">Home </a></li>
+                    <li><a href="/super-admin/bookreviewbanner">Banner</a></li>
+                    <li><a href="/super-admin/listbookreviews">Book Reviews</a></li>
+                </ul>
+            </li>
+
+            <li class="line">
+                <a href="/super-admin/listshortstories">
+                    <i class="bi bi-journal-richtext"></i>
+                    <span class="link_name">Short Stories</span>
+                </a>
+                <ul class="sub-menu blank">
+                    <li><a class="link_name" href="/super-admin/listshortstories">Short Stories</a></li>
+                </ul>
+            </li>
+
+            <li class="line">
+                <a href="/super-admin/listpoems">
+                    <i class="bi bi-journal-album"></i>
+                    <span class="link_name">Poems</span>
+                </a>
+                <ul class="sub-menu blank">
+                    <li><a class="link_name" href="/super-admin/listpoems">Poems</a></li>
+                </ul>
+            </li>
+
+            <li class="line">
+                <a href="/super-admin/listarticles">
+                    <i class="bi bi-collection-fill"></i>
+                    <span class="link_name">Articles</span>
+                </a>
+                <ul class="sub-menu blank">
+                    <li><a class="link_name" href="/super-admin/listarticles">Articles</a></li>
+                </ul>
+            </li>
+
+            <li class="line">
+                <a href="/super-admin/listnovels">
+                    <i class="bi bi-card-checklist"></i>
+                    <span class="link_name">Novels</span>
+                </a>
+                <ul class="sub-menu blank">
+                    <li><a class="link_name" href="/super-admin/listnovels">Novels</a></li>
+                </ul>
+            </li>
+
+            <li class="line">
+                <a href="/super-admin/columnlist">
+                    <i class="bi bi-card-heading"></i>
+                    <span class="link_name">Columns</span>
+                </a>
+                <ul class="sub-menu blank">
+                    <li><a class="link_name" href="/super-admin/columnlist">Columns</a></li>
+                </ul>
+            </li>
+
+            <li class="line">
+                <a href="/super-admin/bookcorner">
+                    <i class="bi bi-book-half"></i>
+                    <span class="link_name">Book Corner</span>
+                </a>
+                <ul class="sub-menu blank">
+                    <li><a class="link_name" href="/super-admin/bookcorner">Book Corner</a></li>
+                </ul>
+            </li>
+
+            <li>
+                <div class="icon-link" (click)="toggleCollapse(3)">
+                    <a>
+
+                        <i class="bi bi-calendar4-week"></i>
+                        <span class="link_name">Events</span>
+                    </a>
+                    <i class='bx bxs-chevron-down arrow'></i>
+                </div>
+                <ul class="sub-menu" [ngClass]="{ 'show': isCollapsed[3] }">
+                    <li><a class="link_name">Home </a></li>
+                    <li><a href="/super-admin/eventsbanner">Banner</a></li>
+                    <li><a href="/super-admin/listevents">Events</a></li>
+                </ul>
+            </li>
+
+
+
+            <li class="line">
+                <a href="/super-admin/listinterviews">
+                    <i class="bi bi-person-rolodex"></i>
+                    <span class="link_name">Interviews</span>
+                </a>
+                <ul class="sub-menu blank">
+                    <li><a class="link_name" href="/super-admin/listinterviews">Interviews</a></li>
+                </ul>
+            </li>
+
+            <li class="line">
+                <a href="/super-admin/enquiry">
+                    <i class="bi bi-inbox-fill"></i>
+                    <span class="link_name">Enquiries</span>
+                </a>
+                <ul class="sub-menu blank">
+                    <li><a class="link_name" href="/super-admin/enquiry">Enquiries</a></li>
+                </ul>
+            </li>
+            <li class="line">
+                <a href="/super-admin/backup">
+                    <i class="bi bi-database-down"></i>
+                    <span class="link_name">Backup</span>
+                </a>
+                <ul class="sub-menu blank">
+                    <li><a class="link_name" href="/super-admin/backup">Backup</a></li>
+                </ul>
+            </li>
+
+            <hr>
+
+            <li class="line">
+                <a href="javascript:void(0)" (click)="confirmLogout()">
+                    <i class="bi bi-box-arrow-left"></i>
+                    <span class="link_name">Logout</span>
+                </a>
+                <ul class="sub-menu blank">
+                    <li><a class="link_name" (click)="confirmLogout()">Logout</a></li>
+                </ul>
+            </li>
+
+
+        </ul> -->
+
+
+        <ul class="nav-links mt-5">
+
+            <li>
+                <div class="icon-link" (click)="toggleCollapse(1)">
+                    <a>
+                        <i class="bi bi-house-check-fill"></i>
+                        <span class="link_name">Home</span>
+                    </a>
+                    <i class='bx bxs-chevron-down arrow'></i>
+                </div>
+                <ul class="sub-menu" [ngClass]="{ 'show': isCollapsed[1] }">
+                    <li><a href="/super-admin/hero">Hero</a></li>
+                    <li><a href="/super-admin/timeline">Timeline</a></li>
+                    <li><a href="/super-admin/plantation">Plantation</a></li>
+                    <li><a href="/super-admin/tourism">Tourism</a></li>
+                    <li><a href="/super-admin/featured-products">Featured Products</a></li>
+                </ul>
+            </li>
+
+            <li class="line">
+                <a href="/super-admin/gallery">
+                    <i class="bi bi-card-image"></i>
+                    <span class="link_name">Gallery</span>
+                </a>
+                <ul class="sub-menu blank">
+                    <li><a class="link_name" href="/super-admin/gallery">Gallery</a></li>
+                </ul>
+            </li>
+
+            <li class="line">
+                <a href="/super-admin/contacts">
+                    <i class="bi bi-inbox-fill"></i>
+                    <span class="link_name">Contact</span>
+                </a>
+                <ul class="sub-menu blank">
+                    <li><a class="link_name" href="/super-admin/contacts">Contact</a></li>
+                </ul>
+            </li>
+
+            <hr>
+
+            <li class="line">
+                <a href="javascript:void(0)" (click)="confirmLogout()">
+                    <i class="bi bi-box-arrow-left"></i>
+                    <span class="link_name">Logout</span>
+                </a>
+                <ul class="sub-menu blank">
+                    <li><a class="link_name" (click)="confirmLogout()">Logout</a></li>
+                </ul>
+            </li>
+
+        </ul>
+
+    </div>
+
+
+    <section class="home-section">
+        <div class="home-content justify-content-end d-flex">
+            <i class="ms-3 bx bx-chevron-right" (click)="toggleSidebar()"></i>
+            <div class="right-icons position-relative">
+                <!-- Profile Dropdown Trigger -->
+                <div class="drop_down" (click)="toggleDropdown()" style="cursor: pointer;">
+                    <i class="bi bi-person-fill"></i> &nbsp;
+                    <span class="pro-name">{{ userName }}</span> &nbsp;
+                    <i class="bi bi-caret-down-fill"></i>
+                </div>
+
+                <div class="dropdown-menu dropdown-menu-right show" *ngIf="dropdownVisible">
+                    <a class="dropdown-item" (click)="goToSettings()">Settings</a>
+                    <a class="dropdown-item" (click)="confirmLogout()">Logout</a>
+                </div>
+
+
+            </div>
+        </div>
+
+        <div style="margin-left: 26px;">
+            <router-outlet></router-outlet>
+        </div>
+    </section>
+
+
+</ng-container>
+
+
+
+
+
+<!-- Logout Confirmation Modal -->
+<p-dialog [(visible)]="display" [modal]="true" [style]="{width: '350px'}" [closable]="false" styleClass="logout-dialog"
+    [contentStyle]="{'padding': '0'}">
+    <ng-template pTemplate="header">
+        <div class="dialog-title-with-icon">
+            <i class="bi bi-box-arrow-right me-2 title-icon"></i>
+            <span>Confirm Logout</span>
+        </div>
+    </ng-template>
+
+    <div class="dialog-content">
+        <!-- <i class="bi bi-exclamation-triangle-fill warning-icon"></i> -->
+        <p class="dialog-message mt-3">Are you sure you want to log out?</p>
+    </div>
+
+    <ng-template pTemplate="footer">
+        <div class="dialog-footer d-flex justify-content-center">
+            <button type="button" class="btn btn-outline-secondary cancel-btn me-2" (click)="onReject()">
+                <i class="bi bi-x-lg me-2"></i>Cancel
+            </button>
+            <button type="button" class="btn logout-btn" (click)="logout()">
+                <i class="bi bi-box-arrow-right me-2"></i>Logout
+            </button>
+        </div>
+    </ng-template>
+
+</p-dialog>
+
+<div *ngIf="Loader" class="spinner-container">
+    <div class="spinner"></div>
+</div>

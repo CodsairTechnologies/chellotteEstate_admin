@@ -1,0 +1,162 @@
+<div class="p-3">
+    <div class="row  first-row mb-2">
+        <!-- breadcrumbs -->
+        <div class="col">
+            <div class="breadcrumb">
+                <span class="home-icon"><i class="bi bi-house-fill"></i></span>
+                <!-- <a href="/super-admin/Dashboard" class="breadcrumb-item">Dashboard</a>
+
+                <span class="arrow-icon"><i class="bi bi-caret-right-fill"></i></span> -->
+                <a href="/super-admin/listnovels" class="breadcrumb-item">Novels</a>
+
+                <span class="arrow-icon"><i class="bi bi-caret-right-fill"></i></span>
+
+                <a href="/super-admin/novels" class="breadcrumb-item">
+                    {{ isEditMode ? 'Edit Novels' : 'Add Novels' }}
+                </a>
+            </div>
+
+
+        </div>
+        <!-- breadcrumbs -->
+    </div>
+
+    <div class="card table-card mb-3 p-4 m-4 border rounded shadow-sm bg-white">
+        <form [formGroup]="NovelsForm">
+
+            <!-- === Author Details Section === -->
+            <div class="border rounded p-3 mb-4 bg-light">
+                <h6 class="section-title mb-3">Author Details</h6>
+
+                <div class="row">
+                    <div class="col-md-6 mb-3">
+                        <label class="form-label fw-semibold">Author Name <span class="required">*</span></label>
+                        <input type="text" class="form-control" formControlName="authorName"
+                            placeholder="Enter author's name">
+                        <div *ngIf="NovelsForm.get('authorName')?.invalid && NovelsForm.get('authorName')?.touched">
+                            <p class="error-msg2">Author name is required!</p>
+                        </div>
+                    </div>
+
+                    <div class="col-md-6 mb-3">
+                        <label class="form-label fw-semibold">Designation </label>
+                        <input type="text" class="form-control" formControlName="designation"
+                            placeholder="Poet, Writer, etc.">
+                        <!-- <div *ngIf="NovelsForm.get('designation')?.invalid && NovelsForm.get('designation')?.touched">
+                            <p class="error-msg2">Designation is required!</p>
+                        </div> -->
+                    </div>
+                </div>
+
+                <div class="mb-3">
+                    <label class="form-label fw-semibold">About Author </label>
+                    <textarea rows="3" class="form-control" formControlName="aboutAuthor"
+                        placeholder="Write something about the author..."></textarea>
+                    <!-- <div *ngIf="NovelsForm.get('aboutAuthor')?.invalid && NovelsForm.get('aboutAuthor')?.touched">
+                        <p class="error-msg2">About Author is required!</p>
+                    </div> -->
+                </div>
+
+                  <div class="col-md-4 mb-3 position-relative">
+                    <label class="form-label fw-semibold">Author Image</label>
+
+                    <div class="border rounded overflow-hidden text-center position-relative"
+                        style="width: 200px; height: 200px; cursor: pointer;" (click)="authorImgInput.click()"
+                        (dragover)="onAuthorDragOver($event)" (dragleave)="onAuthorDragLeave($event)"
+                        (drop)="onAuthorFileDrop($event)" [class.dragover]="isAuthorDragOver">
+
+                        <!-- Preview -->
+                        <img *ngIf="showAuthorImgBox" [src]="authorImgPreview"
+                            class="w-100 h-100 object-fit-contain rounded bg-light" />
+
+                        <!-- Placeholder / instructions -->
+                        <div *ngIf="!showAuthorImgBox"
+                            class="d-flex flex-column justify-content-center align-items-center h-100 text-muted text-center">
+                            <i class="bi bi-upload display-4 mb-2"></i>
+                            <p class="mb-0 small">
+                                Drag & drop or click to upload
+                            </p>
+                        </div>
+
+                        <!-- Hidden file input -->
+                        <input type="file" class="d-none" (change)="onAuthorImageUpload($event)" #authorImgInput
+                            accept="image/*" />
+
+                        <!-- Remove button -->
+                        <i *ngIf="showAuthorImgBox"
+                            class="bi bi-x-circle-fill position-absolute top-0 end-0 text-danger"
+                            style="cursor:pointer; font-size:1.5rem;" (click)="clearAuthorImage()"></i>
+                    </div>
+                </div>
+
+            </div>
+
+            <!-- === Novels Content Section === -->
+            <div class="border rounded p-3 mb-3 bg-light">
+                <h6 class="section-title mb-3">Novels Details</h6>
+
+                <div class="mb-3">
+                    <label class="form-label fw-semibold">Novel Title <span class="required">*</span></label>
+                    <input type="text" class="form-control" formControlName="NovelsTitle"
+                        placeholder="Enter Novels title">
+                    <div *ngIf="NovelsForm.get('NovelsTitle')?.invalid && NovelsForm.get('NovelsTitle')?.touched">
+                        <p class="error-msg2">Novels title is required!</p>
+                    </div>
+                </div>
+
+                <div class="mb-3">
+                    <label class="form-label fw-semibold">Novels Content <span class="required">*</span></label>
+                    <div class="quill-wrapper" style="height: 400px; width: 100%;">
+                        <quill-editor formControlName="NovelsContent" [style]="{height: '100%', width: '100%'}"
+                            theme="snow"></quill-editor>
+                    </div>
+                    <div *ngIf="NovelsForm.get('NovelsContent')?.invalid && NovelsForm.get('NovelsContent')?.touched">
+                        <p class="error-msg2">Novels content is required!</p>
+                    </div>
+                </div>
+
+                <div class="mb-3 w-75 position-relative">
+                    <label class="form-label fw-semibold">Banner Image <span class="required">*</span></label>
+
+                    <!-- Upload card -->
+                    <div class="border rounded overflow-hidden" style="height: 200px; cursor: pointer;"
+                        (click)="coverFileInput.click()">
+
+                        <!-- Preview -->
+                        <img *ngIf="showCoverBox" [src]="coverPreview" class="w-100 h-100 rounded"  style="object-fit: contain;"  />
+
+                        <!-- Placeholder / instructions -->
+                        <div *ngIf="!showCoverBox"
+                            class="d-flex flex-column justify-content-center align-items-center h-100 text-muted">
+                            <i class="bi bi-upload display-4"></i>
+                            <p class="mb-0 small">Upload banner (Max: 5MB, Min: 1280x480, 16:6)</p>
+                        </div>
+
+                        <!-- Hidden file input -->
+                        <input type="file" class="d-none" (change)="onCoverUpload($event)" #coverFileInput
+                            accept="image/*" />
+                    </div>
+
+                    <!-- Remove button -->
+                    <i *ngIf="showCoverBox" class="bi bi-x-circle-fill position-absolute top-0 end-0 text-danger"
+                        style="cursor:pointer; font-size:1.5rem;" (click)="clearCoverImage()"></i>
+
+                    <!-- Validation message -->
+                    <div class="mt-2"
+                        *ngIf="NovelsForm.get('bannerImage')?.invalid && NovelsForm.get('bannerImage')?.touched">
+                        <p class="error-msg2">Banner Image is required!</p>
+                    </div>
+                </div>
+
+            </div>
+        </form>
+
+        <div class="text-end mt-3">
+            <button type="button" class="btn save-btn" (click)="handleNovelsubmit()">Save</button>
+        </div>
+    </div>
+</div>
+
+<div *ngIf="Loader" class="spinner-container">
+    <div class="spinner"></div>
+</div>

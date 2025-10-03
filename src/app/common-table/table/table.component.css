@@ -1,0 +1,361 @@
+.button {
+    border: none;
+    background: transparent;
+    cursor: pointer;
+    transition: transform 0.3s ease, color 0.3s ease;
+    font-size: 16px;
+    color: #333;
+    position: relative;
+}
+
+.button:hover {
+    transform: scale(1.1) !important; 
+}
+
+
+.table-heading {
+    color: rgb(0, 0, 0);
+    text-transform: uppercase;
+
+}
+
+
+
+/* Add these properties to your existing classes */
+.table-content {
+    /* border-collapse: separate; */
+    border-spacing: 0;
+}
+
+.table-content td {
+    /* Keep your existing properties */
+    padding: 16px;
+    text-align: left;
+    font-size: 14px;
+    border: none;
+    border-right: none !important;
+    /* Add these new properties */
+    border-style: solid none solid none;
+    transition: background-color 0.3s ease;
+    border: none;
+
+}
+
+.table-content td:first-child {
+    border-top-left-radius: 20px;
+    border-bottom-left-radius: 20px;
+}
+
+.table-content td:last-child {
+    border-top-right-radius: 20px;
+    border-bottom-right-radius: 20px;
+}
+
+.table-content:nth-child(even) td {
+    background-color: #00000013;
+}
+
+.table-content:nth-child(odd) td {
+    background-color: #ffffff;
+}
+
+/* Preserve hover effect */
+.table-content:hover td {
+    background-color: #bfc0bf74;
+    color: black;
+    font-weight: 400;
+}
+
+
+
+
+.table-th {
+    padding: 1rem;
+    font-family: "Poppins", sans-serif;
+    font-weight: 600;
+    text-transform: capitalize;
+    font-size: 15px;
+    border-bottom: 2px solid transparent;
+    background: linear-gradient(to right, rgb(184, 184, 184) 20%, transparent 20%) bottom / 10px 1px repeat-x;
+
+
+}
+
+.table-td {
+    font-family: "Poppins", sans-serif;
+    font-weight: normal;
+    color: #222;
+}
+
+.bi {
+    font-size: 18px;
+    color: #000000;
+}
+
+/* Paginator */
+::ng-deep .p-paginator {
+    background-color: #fff;
+    border-top: 1px solid #ccc;
+    padding: 14px !important;
+    justify-content: center !important;
+    gap: 8px !important;
+    border-top: none !important;
+    margin-top: 25px;
+}
+
+::ng-deep .p-paginator .p-paginator-pages .p-paginator-page {
+    min-width: 2rem !important;
+    border-radius: 5px;
+    height: 32px;
+    background-color: #eee;
+    color: #333;
+    border: none;
+    margin: 0 5px;
+}
+
+::ng-deep .p-paginator {
+    background-color: #00000000 !important;
+    color: rgb(0, 0, 0) !important;
+}
+
+::ng-deep .p-paginator-pages .p-paginator-page.p-highlight {
+
+    color: white !important;
+}
+
+
+
+::ng-deep .p-paginator .p-paginator-pages .p-paginator-page:hover {
+
+    color: white !important;
+}
+
+::ng-deep.p-ripple {
+    padding: 10px !important;
+}
+
+::ng-deep .p-select-list {
+    background-color: #000000 !important;
+    color: white !important;
+}
+
+::ng-deep.p-ripple:hover {
+    background-color: #505050 !important;
+}
+
+/* 
+::ng-deep .p-paginator-page-selected {
+    background-color: #000000 !important;
+    color: white !important;
+}
+
+::ng-deep .p-paginator-prev {
+    background-color: #000000 !important;
+    color: #ffffff !important;
+    border-radius: 15px !important;
+}
+
+::ng-deep.p-paginator-first {
+    background-color: #000000 !important;
+    color: #ffffff !important;
+    border-radius: 15px !important;
+}
+
+::ng-deep .p-paginator-next {
+    background-color: #000000 !important;
+    color: #ffffff !important;
+    border-radius: 15px !important;
+}
+
+::ng-deep .p-paginator-last {
+    background-color: #000000 !important;
+    color: #ffffff !important;
+    border-radius: 15px !important;
+} */
+
+
+
+::ng-deep .p-paginator-page-selected {
+    background-color: #615f5f !important;
+    color: white !important;
+}
+
+::ng-deep .p-paginator-page-selected:hover {
+    background-color: #929191 !important;
+    /* Lighter shade of green for hover */
+}
+
+::ng-deep .p-paginator-prev {
+    background-color: #000000 !important;
+    color: #ffffff !important;
+    border-radius: 15px !important;
+}
+
+::ng-deep .p-paginator-prev:hover {
+    background-color: #5a5959 !important;
+    /* Lighter shade for hover */
+}
+
+::ng-deep .p-paginator-first {
+    background-color: #000000 !important;
+    color: #ffffff !important;
+    border-radius: 15px !important;
+}
+
+::ng-deep .p-paginator-first:hover {
+    background-color: #5a5959 !important;
+    /* Lighter shade for hover */
+}
+
+::ng-deep .p-paginator-next {
+    background-color: #000000 !important;
+    color: #ffffff !important;
+    border-radius: 15px !important;
+}
+
+::ng-deep .p-paginator-next:hover {
+    background-color: #898888 !important;
+    /* Lighter shade for hover */
+}
+
+::ng-deep .p-paginator-last {
+    background-color: #000000 !important;
+    color: #ffffff !important;
+    border-radius: 15px !important;
+}
+
+::ng-deep .p-paginator-last:hover {
+    background-color: #5a5959 !important;
+    /* Lighter shade for hover */
+}
+
+
+
+
+/* Toggle Button */
+.form-check-input {
+    font-size: 18px;
+    cursor: pointer;
+}
+
+.form-check-input:checked {
+    background-color: #000000 !important;
+    border-color: #000000 !important;
+}
+
+
+
+/* Style for the Active button */
+.active-btn {
+    color: green;
+    background-color: white;
+
+}
+
+.active-btn:hover {
+    color: rgb(255, 255, 255);
+    background-color: #000000be;
+
+}
+
+/* Style for the Inactive button */
+.inactive-btn {
+    color: red;
+    background-color: white;
+}
+
+.inactive-btn:hover {
+    color: rgb(255, 255, 255);
+    background-color: rgba(153, 8, 8, 0.664);
+}
+
+/* .status-button{
+    font-size: 13px;
+  } */
+
+
+/* Style for the Active button */
+.active-btn {
+    border: 1px solid green;
+    color: green;
+
+    position: relative;
+    font-size: 13px;
+    border-radius: 16px;
+}
+
+.active-btn::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    border: 2px solid green;
+    z-index: -1;
+    box-shadow: 0 0 0 4px rgba(0, 255, 0, 0.5);
+    /* Increase the gap with shadow */
+
+}
+
+/* Style for the Inactive button */
+.inactive-btn {
+    border: 1px solid #e00a0a;
+    color: #bb0d0d;
+    background-color: white;
+    position: relative;
+    font-size: 13px;
+    border-radius: 16px;
+}
+
+.inactive-btn::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    border: 2px solid red;
+    z-index: -1;
+    box-shadow: 0 0 0 4px rgba(255, 0, 0, 0.5);
+    /* Increase the gap with shadow */
+}
+
+.see-toggle {
+  color: #007bff;       /* Bootstrap blue */
+  cursor: pointer;
+  font-size: 0.875rem;  /* Slightly smaller */
+  margin-left: 6px;
+  text-decoration: none;
+  font-weight: 500;
+  transition: color 0.2s ease;
+}
+
+.see-toggle:hover {
+  color: #0056b3;       /* Darker blue on hover */
+  text-decoration: underline;
+}
+
+.image-preview-container {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.modal-image {
+  max-width: 100%;
+  max-height: 80vh; /* prevents vertical overflow */
+  object-fit: contain; /* shows full image without cropping */
+}
+
+
+
+/* .modal-image {
+  display: block;
+  max-width: 90vw; 
+  max-height: 90vh; 
+  object-fit: contain;
+} */
+
