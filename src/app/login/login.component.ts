@@ -119,7 +119,7 @@ export class LoginComponent implements OnInit {
     const payload = {
       username: username,
       password: password,
-      loginbrowser: this.getBrowserName()
+      // loginbrowser: this.getBrowserName()
     };
 
     // Show loader before API call
@@ -132,7 +132,7 @@ export class LoginComponent implements OnInit {
       if (response.response === 'Success') {
         this.saveLoginDetails(response.logindetails);
         this.showSuccess('Login Successful!');
-        this.router.navigateByUrl('super-admin/banner');
+        this.router.navigateByUrl('super-admin/hero');
 
         // this.router.navigate(['/super-admin/banner']);
       } else {

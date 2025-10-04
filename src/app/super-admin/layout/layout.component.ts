@@ -1,5 +1,5 @@
-import { CommonModule } from '@angular/common';
-import { Component, ElementRef, HostListener, ViewChild } from '@angular/core';
+import { CommonModule, isPlatformBrowser } from '@angular/common';
+import { Component, ElementRef, HostListener, Inject, PLATFORM_ID, ViewChild } from '@angular/core';
 import { Router, RouterOutlet } from '@angular/router';
 import { DialogModule } from 'primeng/dialog';
 import Swal from 'sweetalert2';
@@ -42,8 +42,11 @@ export class LayoutComponent {
   status: any;
 
 
-  constructor(private router: Router,) {
-
+  constructor(@Inject(PLATFORM_ID) private platformId: Object, private router: Router,) {
+    if (isPlatformBrowser(this.platformId)) {
+      const token = localStorage.getItem('token'); // safe to use
+      console.log('Token:', token);
+    }
   }
 
   ngOnInit(): void {
@@ -96,42 +99,42 @@ export class LayoutComponent {
     this.display = true; // Show the confirmation modal
   }
 
-logout() {
-  this.Loader = true;
+  logout() {
+    this.Loader = true;
 
-  // Clear session storage completely
-  sessionStorage.clear();
+    // Clear session storage completely
+    sessionStorage.clear();
 
-  // Remove only login session keys from localStorage
-  const savedUsername = localStorage.getItem('savedUsername');
-  const savedPassword = localStorage.getItem('savedPassword');
-  const savedTime = localStorage.getItem('savedTime');
+    // Remove only login session keys from localStorage
+    const savedUsername = localStorage.getItem('savedUsername');
+    const savedPassword = localStorage.getItem('savedPassword');
+    const savedTime = localStorage.getItem('savedTime');
 
-  localStorage.clear(); // clear all
-  // Restore Remember Me data after clear
-  if (savedUsername && savedPassword && savedTime) {
-    localStorage.setItem('savedUsername', savedUsername);
-    localStorage.setItem('savedPassword', savedPassword);
-    localStorage.setItem('savedTime', savedTime);
+    localStorage.clear(); // clear all
+    // Restore Remember Me data after clear
+    if (savedUsername && savedPassword && savedTime) {
+      localStorage.setItem('savedUsername', savedUsername);
+      localStorage.setItem('savedPassword', savedPassword);
+      localStorage.setItem('savedTime', savedTime);
+    }
+
+    setTimeout(() => {
+      this.router.navigate(['/login']);
+
+      Swal.fire({
+        icon: 'success',
+        title: 'Logged out successfully',
+        toast: true,
+        position: 'top-end',
+        showConfirmButton: false,
+        timer: 3000,
+        timerProgressBar: true
+      });
+
+      this.display = false;
+      this.Loader = false;
+    }, 2000);
   }
-
-  setTimeout(() => {
-    this.router.navigate(['/login']);
-
-    Swal.fire({
-      icon: 'success',
-      title: 'Logged out successfully',
-      toast: true,
-      position: 'top-end',
-      showConfirmButton: false,
-      timer: 3000,
-      timerProgressBar: true
-    });
-
-    this.display = false;
-    this.Loader = false;
-  }, 2000);
-}
 
 
   dropdownVisible = false;
