@@ -213,8 +213,8 @@ export class TimelineComponent {
         break;
 
       case 'TOGGLETABLE_DATA':
-        const newStatus = event.objElement.status; // this is already the toggled value
-        this.toggleActiveInactive(event.objElement.timelineId, newStatus); // use timelineId
+        const newStatus = event.objElement.status;
+        this.toggleActiveInactive(event.objElement.timelineId, newStatus);
         break;
 
 
