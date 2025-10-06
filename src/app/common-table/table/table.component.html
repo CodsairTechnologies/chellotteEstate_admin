@@ -67,6 +67,12 @@
                             (click)="openImageModal(getImageUrl(rowData[col.strKey]))" />
                     </ng-container>
 
+                    <ng-container *ngIf="col.strKey === 'image_left' || col.strKey === 'image_right'">
+                        <img [src]="rowData[col.strKey]" alt="Image" class="img-thumbnail"
+                            style="width: 60px; height: 60px; object-fit: cover; cursor: pointer;"
+                            (click)="openImageModal(rowData[col.strKey])" />
+                    </ng-container>
+
 
                     <!-- <ng-container *ngIf="col.strKey =='strStatus'">
                         <div class="form-check form-switch justify-content-center d-flex">
@@ -93,7 +99,7 @@
 
 
 
-                    <ng-container
+                    <!-- <ng-container
                         *ngIf="col.strKey !== 'strActions' && col.strKey != 'strStatus' && col.strKey !== 'imageurl' && col.strKey !== 'bannerurl' && col.strKey !== 'image' && col.strKey !== 'bannerimage' && col.strKey !== 'coverimage'  && col.strKey !== 'bookcoverimage' ">
 
                         <span *ngIf="rowData[col.strKey] as cellValue">
@@ -107,7 +113,23 @@
                             </ng-container>
                         </span>
 
+                    </ng-container> -->
+                    <ng-container
+                        *ngIf="col.strKey !== 'strActions' && col.strKey != 'strStatus' && col.strKey !== 'imageurl' && col.strKey !== 'bannerurl' && col.strKey !== 'image' && col.strKey !== 'bannerimage' && col.strKey !== 'coverimage' && col.strKey !== 'bookcoverimage' && col.strKey !== 'image_left' && col.strKey !== 'image_right' ">
+
+                        <span *ngIf="rowData[col.strKey] as cellValue">
+                            {{ isExpanded(rowData, col.strKey)
+                            ? cellValue
+                            : (cellValue?.toString() | slice:0:52) }}
+                            <ng-container *ngIf="cellValue?.toString().length > 52">
+                                <a class="see-toggle" (click)="toggleExpand(rowData, col.strKey)">
+                                    {{ isExpanded(rowData, col.strKey) ? 'See less' : 'See more' }}
+                                </a>
+                            </ng-container>
+                        </span>
+
                     </ng-container>
+
 
 
 

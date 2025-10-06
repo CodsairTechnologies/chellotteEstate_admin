@@ -41,6 +41,9 @@ import { TourismComponent } from './tourism/tourism.component';
 import { FeaturedProductsComponent } from './featured-products/featured-products.component';
 import { GalleryComponent } from './gallery/gallery.component';
 import { ContactsComponent } from './contacts/contacts.component';
+import { AboutComponent } from './about/about.component';
+import { AboutUsComponent } from './about-us/about-us.component';
+import { ProductsComponent } from './products/products.component';
 const routes: Routes = [
   {
     path: '',
@@ -58,7 +61,10 @@ const routes: Routes = [
 
       { path: 'contacts', component: ContactsComponent },
 
-      { path: 'settings', component: SettingsComponent }
+      { path: 'settings', component: SettingsComponent },
+      { path: 'about', component: AboutComponent },
+      { path: 'about-us', component: AboutUsComponent },
+      {path:'products',component:ProductsComponent}
     ]
   }
 ];

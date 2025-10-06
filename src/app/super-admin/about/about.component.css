@@ -1,0 +1,378 @@
+* {
+    font-family: "Poppins", sans-serif;
+
+}
+
+/* css of breadcrumbs */
+.breadcrumb {
+    list-style: none;
+    padding: 10px;
+    margin: 0 0px 0 20px;
+}
+
+.breadcrumbs {
+    position: relative;
+    display: inline-block;
+}
+
+/* .breadcrumbs:not(:last-child)::after {
+    content: '';
+    display: inline-block;
+    width: 18px;
+    height: 10px;
+    background-image: url('data:image/svg+xml,%3Csvg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-chevron-right" viewBox="0 0 16 16"%3E%3Cpath fill-rule="evenodd" d="M4.646 1.646a.5.5 0 0 1 .708 0l6 6a.5.5 0 0 1 0 .708l-6 6a.5.5 0 0 1-.708-.708L10.293 8 4.646 2.354a.5.5 0 0 1 0-.708z"%3E%3C/path%3E%3C/svg%3E');
+    background-repeat: no-repeat;
+    background-position: center;
+    margin-left: 5px;
+} */
+
+
+.bi-house-door-fill {
+    color: rgb(0, 0, 0);
+    font-size: 17px;
+}
+
+.breadcrumb a {
+    text-decoration: none;
+    color: #000000;
+    font-size: 15px;
+    font-style: normal;
+    font-family: "Poppins", sans-serif;
+    font-weight: 500;
+}
+
+.first-row {
+    width: 100%;
+}
+
+.home-icon {
+    margin-right: 5px;
+}
+
+.arrow-icon {
+    margin: 0 5px;
+}
+
+.bi-chevron-right::before {
+    font-weight: bolder !important;
+    font-size: 15px;
+
+}
+
+
+.button {
+    background-color: #000 !important;
+    color: #fff;
+    font-size: 16px;
+    font-family: "Poppins", sans-serif;
+    font-weight: 500;
+    border: none;
+    height: 40px;
+    border-radius: 5px;
+    padding: 0 20px;
+    min-width: 100px;
+}
+
+
+.button:hover {
+    background-color: #383838 !important;
+    color: white !important;
+}
+
+/* css of breadcrumbs */
+
+
+
+.table-card {
+    padding: 24px;
+    border-radius: 12px;
+    border: 1px solid #e0e0e0;
+    background-color: #ffffff;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+}
+
+
+
+.section-title {
+    font-weight: 500;
+    color: #343a40;
+    border-bottom: 1px solid #dee2e6;
+    padding-bottom: 5px;
+    font-size: 20px;
+}
+
+.img-card {
+    background-color: #f8f9fa;
+    border: 1px dashed #ccc;
+}
+
+.img-preview {
+    max-width: 200px;
+    max-height: 200px;
+    object-fit: cover;
+    border-radius: 8px;
+    border: 1px solid #ccc;
+    display: block;
+    margin: 0 auto;
+}
+
+.img-div {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 10px;
+}
+
+/* dialog box */
+
+
+:host ::ng-deep .p-dialog {
+    background-color: white !important;
+    border-radius: 8px;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);
+    font-weight: bold;
+}
+
+
+::ng-deep.p-dialog-header {
+    padding: 20px !important;
+}
+
+.footer {
+    padding: 20px !important;
+
+}
+
+::ng-deep .p-dialog-footer {
+    padding: 20px !important;
+}
+
+::ng-deep .p-button-text.p-button-secondary {
+    background: #000000 !important;
+    color: white !important;
+}
+
+.uploadbtn {
+    background: #000000 !important;
+    color: white !important;
+}
+
+.submit-btn {
+    background: #000000 !important;
+    color: white !important;
+    width: 22%;
+    border-radius: 8px;
+    padding: 10px;
+    font-family: "Poppins", sans-serif;
+    font-weight: 500;
+}
+
+.submit-btn:hover {
+    background: #383838 !important;
+}
+
+.close-btn {
+    background: #000000 !important;
+    color: white !important;
+    width: 100%;
+    border-radius: 8px;
+    padding: 10px;
+    font-family: "Poppins", sans-serif;
+    font-weight: 500;
+}
+
+.close-btn:hover {
+    background: #383838 !important;
+}
+
+.delete-btn {
+    background: #000000 !important;
+    color: white !important;
+    width: 100%;
+    border-radius: 8px;
+    padding: 10px;
+    font-family: "Poppins", sans-serif;
+    font-weight: 500;
+}
+
+.delete-btn:hover {
+    background: #383838 !important;
+}
+
+.edit-unit {
+    font-size: 18px;
+    font-weight: bold;
+    color: #333;
+    text-align: center;
+}
+
+.bi-exclamation-triangle {
+    color: rgb(214, 2, 2);
+    font-size: 22px;
+    padding: 10px;
+
+}
+
+.modal-body {
+    padding: 20px;
+}
+
+
+.form-label {
+    font-weight: 600;
+}
+
+
+.form-control {
+    border: 1px solid #ced4da;
+    border-radius: 5px;
+    padding: 8px;
+    font-size: 14px;
+}
+
+
+.error-msg2 p {
+    color: rgb(222, 25, 25);
+    font-size: 12px;
+    margin-top: 5px;
+    font-weight: 400;
+}
+
+
+.error-msg2 {
+    color: rgb(255, 0, 0);
+    font-size: 12px;
+    margin-top: 5px;
+    font-weight: 400;
+}
+
+
+.bi-x-circle-fill {
+    position: absolute;
+    top: 5px;
+    right: 5px;
+    color: #222222;
+    font-size: 24px;
+    /* Larger icon */
+    cursor: pointer;
+    z-index: 10;
+}
+
+/* content area */
+
+:host ::ng-deep .quill-wrapper {
+    resize: vertical;
+    overflow: hidden;
+    min-height: 200px;
+    /* keep a minimum height */
+    width: 100%;
+    border: 1px solid #ccc;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+}
+
+:host ::ng-deep .quill-wrapper .ql-toolbar {
+    position: sticky;
+    top: 0;
+    z-index: 1;
+    background: #fff;
+    border-bottom: 1px solid #ccc;
+    flex-shrink: 0;
+}
+
+:host ::ng-deep .quill-wrapper .ql-container {
+    height: calc(100% - 42px) !important;
+    width: 100% !important;
+    min-height: calc(100% - 42px) !important;
+    overflow-y: auto !important;
+    overflow-x: hidden !important;
+    border: none !important;
+    flex: 1;
+    margin-top: 0 !important;
+    padding-top: 0 !important;
+}
+
+:host ::ng-deep .quill-wrapper .ql-editor {
+    height: 100% !important;
+    min-height: 100% !important;
+    overflow-y: auto !important;
+    overflow-x: hidden !important;
+    margin-top: 0 !important;
+    padding-top: 40px !important;
+}
+
+/* Fallback to ensure resize handle is visible */
+:host ::ng-deep .quill-wrapper::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    width: 15px;
+    height: 15px;
+    background: transparent;
+    cursor: ns-resize;
+    z-index: 10;
+}
+
+
+.dragover {
+    border: 2px dashed #0d6efd !important;
+    background: #f0f8ff;
+}
+
+.singleview-container {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    /* space between sections */
+}
+
+.singleview-section {
+    border-bottom: 1px solid #e0e0e0;
+    padding-bottom: 15px;
+}
+
+.singleview-section:last-child {
+    border-bottom: none;
+}
+
+/* Flex layout for text + image alignment */
+.section-content {
+    display: flex;
+    align-items: center;
+    /* vertical alignment */
+    gap: 20px;
+    /* space between text and image */
+}
+
+.text-content {
+    flex: 1;
+    /* take remaining space */
+}
+
+.image-content {
+    flex-shrink: 0;
+    /* image stays fixed */
+}
+
+.singleview-image {
+    width: 150px;
+    height: 100px;
+    object-fit: cover;
+    border-radius: 5px;
+}
+
+.fixed-img {
+    width: 200px;
+    /* fixed width */
+    height: 150px;
+    /* fixed height */
+    object-fit: cover;
+    /* crop image to fit */
+    border-radius: 5px;
+    /* optional, for rounded corners */
+    border: 1px solid #ccc;
+    /* optional border */
+}
+

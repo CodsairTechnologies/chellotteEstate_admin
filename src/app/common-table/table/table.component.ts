@@ -19,8 +19,10 @@ import { DialogModule } from 'primeng/dialog';
 export class TableComponent implements OnInit, OnChanges {
   @Output() objPresentationEvent = new EventEmitter()
 
-  @Input() arrList = []
-  @Input() arrColumns = []
+  // @Input() arrList = []
+  // @Input() arrColumns = []
+  @Input() arrList: any[] = [];
+  @Input() arrColumns: any[] = [];
   @Input() blnNoEdit: boolean = false
   @Input() blnHasActions: boolean | undefined
   @Input() blnHasSingleview: boolean = false;
