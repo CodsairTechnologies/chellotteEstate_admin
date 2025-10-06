@@ -44,6 +44,7 @@ import { ContactsComponent } from './contacts/contacts.component';
 import { AboutComponent } from './about/about.component';
 import { AboutUsComponent } from './about-us/about-us.component';
 import { ProductsComponent } from './products/products.component';
+import { TestimonialsComponent } from './testimonials/testimonials.component';
 const routes: Routes = [
   {
     path: '',
@@ -55,6 +56,7 @@ const routes: Routes = [
       { path: 'timeline', component: TimelineComponent },
       { path: 'plantation', component: PlantationComponent },
       { path: 'tourism', component: TourismComponent },
+      { path: 'testimonials', component: TestimonialsComponent },
       { path: 'featured-products', component: FeaturedProductsComponent },
 
       { path: 'gallery', component: GalleryComponent },

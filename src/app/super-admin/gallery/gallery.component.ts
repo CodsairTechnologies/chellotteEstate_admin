@@ -1,5 +1,5 @@
 import { CommonModule } from '@angular/common';
-import { Component, Inject, PLATFORM_ID } from '@angular/core';
+import { ChangeDetectorRef, Component, Inject, PLATFORM_ID } from '@angular/core';
 import { ReactiveFormsModule, FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { AvatarModule } from 'primeng/avatar';
 import { ButtonModule } from 'primeng/button';
@@ -46,7 +46,7 @@ export class GalleryComponent {
   selectedGallery: any;
 
   constructor(
-    private fb: FormBuilder,
+    private fb: FormBuilder, private cdRef: ChangeDetectorRef,
     private apiService: ApiIntegrationService,
     @Inject(PLATFORM_ID) private platformId: Object
   ) { }
@@ -152,17 +152,24 @@ export class GalleryComponent {
     }
 
     this.Loader = true;
+
     this.apiService.handleApiCall('/api/admin/add_edit_gallery/', formData, (res) => {
+      // Stop loader immediately after getting a response
       this.Loader = false;
+
       if (res.response === 'Success') {
         this.showSuccess(res.message);
         this.OpenModal = false;
         this.getGalleryList();
       } else {
-        this.showError(res.message);
+        console.log('API callback:', res);
+        this.showError(res.message || 'Something went wrong.');
       }
+
+      this.cdRef.detectChanges();
     });
   }
+
 
 
 
