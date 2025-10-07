@@ -31,17 +31,7 @@
 <p-dialog [(visible)]="OpenModal" [modal]="true" [style]="{width: '40vw'}" [baseZIndex]="9000" [draggable]="false"
     [resizable]="false" [header]="modalHeader">
 
-    <form [formGroup]="TimelineForm" class="p-fluid">
-        <!-- Title -->
-        <div class="mb-3">
-            <label class="form-label">Title <span class="required">*</span></label>
-            <input type="text" class="form-control" formControlName="title" placeholder="Enter timeline title" />
-            <div class="error-msg2" *ngIf="TimelineForm.get('title')?.touched && TimelineForm.get('title')?.invalid">
-                <p class="error-msg2" *ngIf="TimelineForm.get('title')?.errors?.['required']">Title is required!</p>
-                <p class="error-msg2" *ngIf="TimelineForm.get('title')?.errors?.['maxlength']">Max 100 characters
-                    allowed.</p>
-            </div>
-        </div>
+    <form [formGroup]="TimelineForm" class="p-fluid m-3">
 
         <!-- Description -->
         <div class="mb-3">
@@ -55,20 +45,16 @@
             </div>
         </div>
 
-        <!-- From Date -->
+        <!-- Time Period -->
         <div class="mb-3">
-            <label class="form-label">From Date <span class="required">*</span></label>
-            <input type="date" class="form-control" formControlName="fromDate" />
+            <label class="form-label">Time Period <span class="required">*</span></label>
+            <input type="text" class="form-control" formControlName="timePeriod" placeholder="e.g. 1990 - Today" />
             <div class="error-msg2"
-                *ngIf="TimelineForm.get('fromDate')?.touched && TimelineForm.get('fromDate')?.invalid">
-                <p class="error-msg2">From Date is required!</p>
+                *ngIf="TimelineForm.get('timePeriod')?.touched && TimelineForm.get('timePeriod')?.invalid">
+                <p class="error-msg2" *ngIf="TimelineForm.get('timePeriod')?.errors?.['required']">
+                    Time Period is required!
+                </p>
             </div>
-        </div>
-
-        <!-- To Date (optional) -->
-        <div class="mb-3">
-            <label class="form-label">To Date</label>
-            <input type="date" class="form-control" formControlName="toDate" />
         </div>
     </form>
 
@@ -81,10 +67,10 @@
 <p-dialog [(visible)]="displaySingleViewModal" header="Timeline Details" [modal]="true" [style]="{width: '45vw'}"
     [closable]="true" [dismissableMask]="true">
     <div *ngIf="selectedTimeline" class="singleview-body p-3">
-        <div class="mb-3">
+        <!-- <div class="mb-3">
             <label class="form-label">Title</label>
             <p class="form-control-plaintext">{{ selectedTimeline.title }}</p>
-        </div>
+        </div> -->
 
         <div class="mb-3">
             <label class="form-label">Description</label>

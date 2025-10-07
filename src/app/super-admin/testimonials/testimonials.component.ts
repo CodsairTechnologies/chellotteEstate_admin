@@ -31,7 +31,7 @@ export class TestimonialsComponent {
     { strHeader: 'Profile Image', strAlign: 'center', strKey: 'image', field: 'image' },
     { strHeader: 'Customer Name', strAlign: 'center', strKey: 'name', field: 'name' },
     { strHeader: 'Testimonial', strAlign: 'left', strKey: 'testimony', field: 'testimony' },
-    { strHeader: 'Status', strAlign: 'center', strKey: 'status', field: 'status' },
+    { strHeader: "Status", strAlign: "center", strKey: "strStatus" },
     { strHeader: 'Actions', strAlign: 'center', strKey: 'strActions' }
   ];
 

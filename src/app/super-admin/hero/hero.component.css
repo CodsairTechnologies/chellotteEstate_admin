@@ -274,3 +274,13 @@
   border: 1px solid #ced4da;
   font-weight: normal !important;
 }
+
+.img-preview {
+    max-width: 200px;
+    max-height: 200px;
+    object-fit: cover;
+    border-radius: 8px;
+    border: 1px solid #ccc;
+    display: block;
+    margin: 0 auto;
+}

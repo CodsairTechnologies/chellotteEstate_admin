@@ -28,7 +28,7 @@
 <!-- Add/Edit Modal -->
 <p-dialog [(visible)]="openModal" [modal]="true" [style]="{ width: '50vw' }" [draggable]="false" [resizable]="false"
     [header]="modalHeader">
-    <form [formGroup]="PlantationForm" class="p-fluid">
+    <form [formGroup]="PlantationForm" class="p-fluid m-3">
         <div class="mb-3">
             <label class="form-label">Title <span class="required">*</span></label>
             <input type="text" formControlName="title" class="form-control" placeholder="Enter title" />
@@ -63,6 +63,11 @@
                         (click)="clearImage('image1')"></i>
                 </div>
             </div>
+            <!-- Validation -->
+            <div class="error-msg2 mt-2"
+                *ngIf="PlantationForm.get('image1')?.invalid && PlantationForm.get('image1')?.touched">
+                <p class="error-msg2">Image 1 is required!</p>
+            </div>
         </div>
 
         <!-- Image 2 -->
@@ -79,6 +84,11 @@
                     <i class="bi bi-x-circle-fill text-danger position-absolute top-0 end-0"
                         (click)="clearImage('image2')"></i>
                 </div>
+            </div>
+            <!-- Validation -->
+            <div class="error-msg2 mt-2"
+                *ngIf="PlantationForm.get('image2')?.invalid && PlantationForm.get('image2')?.touched">
+                <p class="error-msg2">Image 2 is required!</p>
             </div>
         </div>
     </form>

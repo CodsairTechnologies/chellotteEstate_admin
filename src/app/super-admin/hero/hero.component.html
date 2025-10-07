@@ -41,7 +41,7 @@
                     Upload Image <span class="required">*</span>
                 </label>
                 <br>
-                <small class="text-muted">Recommended size: 1280 × 480 px (16:6 aspect ratio, Max: 5MB)</small>
+                <!-- <small class="text-muted">Recommended size: 1280 × 480 px (16:6 aspect ratio, Max: 5MB)</small> -->
 
                 <div class="img-card card mt-2">
                     <div *ngIf="!showImageBox">
@@ -69,13 +69,13 @@
 
             <!-- Title -->
             <div class="mb-3">
-                <label class="form-label">Title </label>
+                <label class="form-label">Title <span class="required">*</span> </label>
                 <textarea class="form-control" formControlName="title" placeholder="Enter banner title"
                     rows="2"></textarea>
                 <div *ngIf="BannerForm.get('title')?.touched">
-                    <!-- <p class="error-msg2" *ngIf="BannerForm.get('title')?.errors?.['required']">
+                    <p class="error-msg2" *ngIf="BannerForm.get('title')?.errors?.['required']">
                         Title is required!
-                    </p> -->
+                    </p>
                     <p class="error-msg2" *ngIf="BannerForm.get('title')?.errors?.['maxlength']">
                         Maximum 80 characters allowed!
                     </p>
@@ -84,13 +84,13 @@
 
             <!-- Subtitle -->
             <div class="mb-3">
-                <label class="form-label">Subtitle</label>
+                <label class="form-label">Subtitle <span class="required">*</span></label>
                 <textarea class="form-control" formControlName="subtitle" placeholder="Enter subtitle"
                     rows="3"></textarea>
                 <div *ngIf="BannerForm.get('subtitle')?.touched">
-                    <!-- <p class="error-msg2" *ngIf="BannerForm.get('subtitle')?.errors?.['required']">
+                    <p class="error-msg2" *ngIf="BannerForm.get('subtitle')?.errors?.['required']">
                         Subtitle is required!
-                    </p> -->
+                    </p>
                     <p class="error-msg2" *ngIf="BannerForm.get('subtitle')?.errors?.['maxlength']">
                         Maximum 100 characters allowed!
                     </p>

@@ -77,9 +77,8 @@ token: any;
     this.status = localStorage.getItem("status");
   }
     this.BannerForm = this.formbuilder.group({
-      title: ['', [Validators.maxLength(80)]],
-      subtitle: ['', [Validators.maxLength(100)]],
-      link: [''],
+      title: ['', [Validators.required,Validators.maxLength(80)]],
+      subtitle: ['', [Validators.required,Validators.maxLength(100)]],
       image: [null, this.imageRequiredValidator]
     });
 

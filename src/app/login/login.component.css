@@ -35,7 +35,7 @@ section {
 
 .card-left {
     width: 50%;
-    overflow: hidden;
+    display: flex;
 }
 
 .card-left .image-cover img {
@@ -44,6 +44,7 @@ section {
     object-fit: cover;
     display: block;
 }
+
 
 .card-right {
   width: 60%;
@@ -280,7 +281,7 @@ section {
 margin-bottom: 12px;
 }
 .logo-container img {
-    max-width: 70%;
+    max-width: 45%;
     height: auto;
 }
 

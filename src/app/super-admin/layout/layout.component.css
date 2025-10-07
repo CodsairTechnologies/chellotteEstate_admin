@@ -53,15 +53,26 @@
     justify-content: center;
     align-items: center;
     width: 100%;
-    margin-bottom: 10px;
-    margin-top: -25px;
+    /* padding: 10px 0; */
+    margin-top: 5px;
+    margin-bottom: 2px;
 }
 
+
 .menu-logo img {
-    max-width: 100%;
-    width: 150px;
-    height: 40px;
+    width: 120px;                /* Adjust width as needed */
+    height: auto;                /* Maintain aspect ratio */
+    object-fit: contain;         /* Prevent stretching */
+    display: block;
+    margin: 0 auto;              /* Center horizontally */
+    transition: transform 0.3s ease, filter 0.3s ease;
 }
+
+.menu-logo img:hover {
+    transform: scale(1.05);
+    filter: brightness(1.1);
+}
+
 
 .sidebar .logo-details .logo_name {
     font-size: 22px;

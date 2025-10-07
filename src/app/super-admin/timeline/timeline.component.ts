@@ -40,8 +40,8 @@ export class TimelineComponent {
   arrList: any = [];
   arrColumns: any = [
     { strHeader: "Sl. No.", strAlign: "center", strKey: "slNo", field: "slNo" },
-    { strHeader: "Title", strAlign: "center", strKey: "title", field: "title" },
-    { strHeader: "Date", strAlign: "center", strKey: "date", field: "date" },
+    { strHeader: "Description", strAlign: "center", strKey: "description", field: "description" },
+    { strHeader: "Time-Period", strAlign: "center", strKey: "date", field: "date" },
     { strHeader: "Status", strAlign: "center", strKey: "strStatus", field: "status" },
     { strHeader: "Actions", strAlign: "center", strKey: "strActions" }
   ];
@@ -64,10 +64,8 @@ export class TimelineComponent {
     }
 
     this.TimelineForm = this.fb.group({
-      title: ['', [Validators.required, Validators.maxLength(100)]],
       description: ['', [Validators.required]],
-      fromDate: ['', Validators.required],
-      toDate: ['']
+      timePeriod: ['', Validators.required],
     });
 
     this.getTimelineTable();
@@ -117,10 +115,8 @@ export class TimelineComponent {
         const timeline = res.timeline;
         const period = timeline.year_or_period?.split(' - ') || [];
         this.TimelineForm.patchValue({
-          title: timeline.title,
           description: timeline.description,
-          fromDate: period[0] || '',
-          toDate: period[1] || ''
+          timePeriod: timeline.year_or_period || ''
         });
       } else {
         this.showError(res.message || 'Failed to fetch timeline.');
@@ -134,15 +130,10 @@ export class TimelineComponent {
       return;
     }
 
-    const from = this.TimelineForm.value.fromDate;
-    const to = this.TimelineForm.value.toDate;
-    const year_or_period = to ? `${from} - ${to}` : from;
-
     const payload = {
       timelineId: this.ID || '',
-      title: this.TimelineForm.value.title,
       description: this.TimelineForm.value.description,
-      year_or_period,
+      year_or_period: this.TimelineForm.value.timePeriod,
       createdId: this.adminid
     };
 

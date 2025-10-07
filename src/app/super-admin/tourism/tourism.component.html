@@ -10,48 +10,42 @@
     <!-- button -->
     <div class="col">
       <div class="justify-content-end d-flex">
-        <button pButton type="button" label="+Add" class="btn button"
-          (click)="openCardModal(false)"></button>
+        <button pButton type="button" label="+Add" class="btn button" (click)="openCardModal(false)"></button>
       </div>
     </div>
   </div>
 
   <!-- Table -->
   <div class="card table-card mb-3">
-    <app-table
-      [arrList]="arrList"
-      [arrColumns]="arrColumns"
-      [blnForDelete]="blnForDelete"
-      [blnNoEdit]="blnNoEdit"
-      [blnHasSingleview]="blnHasSingleview"
-      (objPresentationEvent)="eventFromTable($event)">
+    <app-table [arrList]="arrList" [arrColumns]="arrColumns" [blnForDelete]="blnForDelete" [blnNoEdit]="blnNoEdit"
+      [blnHasSingleview]="blnHasSingleview" (objPresentationEvent)="eventFromTable($event)">
     </app-table>
   </div>
 </div>
 
 <!-- Add/Edit Tourism Card Modal -->
-<p-dialog [(visible)]="OpenModal" [modal]="true" [style]="{width: '40vw'}" [baseZIndex]="9000"
-  [draggable]="false" [resizable]="false" [header]="modalHeader">
+<p-dialog [(visible)]="OpenModal" [modal]="true" [style]="{width: '40vw'}" [baseZIndex]="9000" [draggable]="false"
+  [resizable]="false" [header]="modalHeader">
   <div class="modal-body">
     <form [formGroup]="TourismForm">
       <!-- Image Upload -->
       <div class="mb-3">
         <label class="form-label">Upload Image <span class="required">*</span></label>
         <br>
-        <small class="text-muted">Recommended: 1280x480 px, Max 5MB</small>
+        <!-- <small class="text-muted">Recommended: 1280x480 px, Max 5MB</small> -->
         <div class="img-card card mt-2">
           <div *ngIf="!showImageBox">
             <button type="button" class="btn uploadbtn" (click)="selectfile.click()">Choose File</button>
-            <input type="file" class="form-control d-none" (change)="onFileUpload($event)" #selectfile
-              accept="image/*">
+            <input type="file" class="form-control d-none" (change)="onFileUpload($event)" #selectfile accept="image/*">
           </div>
           <div *ngIf="showImageBox" class="img-div position-relative w-100">
             <img *ngIf="fileType?.startsWith('image/')" [src]="imagePreview" class="img-preview img-fluid w-100" />
-            <i class="bi bi-x-circle-fill position-absolute top-0 end-0 text-danger"
-              style="cursor: pointer;" (click)="clearCard()"></i>
+            <i class="bi bi-x-circle-fill position-absolute top-0 end-0 text-danger" style="cursor: pointer;"
+              (click)="clearCard()"></i>
           </div>
         </div>
-        <div class="error-msg2 mt-2" *ngIf="TourismForm.get('card_image')?.invalid && TourismForm.get('card_image')?.touched">
+        <div class="error-msg2 mt-2"
+          *ngIf="TourismForm.get('card_image')?.invalid && TourismForm.get('card_image')?.touched">
           <p class="error-msg2">Image is required!</p>
         </div>
       </div>
@@ -68,8 +62,10 @@
       <!-- Card Description -->
       <div class="mb-3">
         <label class="form-label">Card Description</label>
-        <textarea class="form-control" formControlName="card_description" placeholder="Enter description" rows="3"></textarea>
-        <div *ngIf="TourismForm.get('card_description')?.touched && TourismForm.get('card_description')?.errors?.['maxlength']">
+        <textarea class="form-control" formControlName="card_description" placeholder="Enter description"
+          rows="3"></textarea>
+        <div
+          *ngIf="TourismForm.get('card_description')?.touched && TourismForm.get('card_description')?.errors?.['maxlength']">
           Maximum 150 characters allowed!
         </div>
       </div>
@@ -82,20 +78,32 @@
 </p-dialog>
 
 <!-- Single View Modal -->
-<p-dialog [(visible)]="displaySingleViewModal" header="Tourism Card Details" [modal]="true"
-  [style]="{width: '50vw'}" [closable]="true" [dismissableMask]="true">
-  <div *ngIf="selectedCard" class="singleview-body p-3 text-center">
-    <img [src]="getImageUrl(selectedCard.card_image)" alt="Card Image" class="img-fluid rounded singleview-image" />
-    <div class="mt-3">
-      <p><strong>Title:</strong> {{selectedCard.card_title}}</p>
-      <p><strong>Description:</strong> {{selectedCard.card_description}}</p>
+<p-dialog [(visible)]="displaySingleViewModal" header="Tourism Card Details" [modal]="true" [style]="{ width: '50vw' }"
+  [closable]="true" [dismissableMask]="true">
+
+  <div *ngIf="selectedCard" class="singleview-body p-3">
+
+    <div class="text-center mb-3">
+      <img [src]="getImageUrl(selectedCard.card_image)" alt="Card Image" class="img-fluid rounded singleview-image" />
     </div>
+
+    <div class="form-group mb-3" *ngIf="selectedCard.card_title">
+      <label class="form-label">Title</label>
+      <p class="form-control-plaintext">{{ selectedCard.card_title }}</p>
+    </div>
+
+    <div class="form-group mb-3" *ngIf="selectedCard.card_description">
+      <label class="form-label">Description</label>
+      <p class="form-control-plaintext">{{ selectedCard.card_description }}</p>
+    </div>
+
   </div>
 </p-dialog>
 
+
 <!-- Delete Modal -->
-<p-dialog [(visible)]="deleteModal" [modal]="true" [style]="{width: '35vw'}" [baseZIndex]="10000"
-  [draggable]="false" [resizable]="false">
+<p-dialog [(visible)]="deleteModal" [modal]="true" [style]="{width: '35vw'}" [baseZIndex]="10000" [draggable]="false"
+  [resizable]="false">
   <ng-template pTemplate="header">
     <div class="d-flex align-items-center">
       <i class="bi bi-exclamation-triangle"></i>

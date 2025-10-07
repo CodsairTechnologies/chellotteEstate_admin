@@ -36,6 +36,7 @@ export class TourismComponent {
     { strHeader: "Image", strAlign: "center", strKey: "image", field: "image" },
     { strHeader: "Title", strAlign: "center", strKey: "card_title", field: "card_title" },
     { strHeader: "Description", strAlign: "center", strKey: "card_description", field: "card_description" },
+    { strHeader: "Status", strAlign: "center", strKey: "strStatus" },
     { strHeader: "Actions", strAlign: "center", strKey: "strActions" }
   ];
 
@@ -74,6 +75,7 @@ export class TourismComponent {
           ...obj,
           slNo: i + 1,
           image: obj.card_image ? environment.apiUrl + obj.card_image : 'assets/images/no-image.png',
+          strStatus: obj.status
         }));
       } else this.arrList = [];
     });
@@ -93,29 +95,44 @@ export class TourismComponent {
       this.id = id;
       this.getCardById(id);
     } else {
-      this.id = ''; 
+      this.id = '';
     }
   }
 
 
 
   getCardById(id: string) {
+    this.Loader = true;
     this.objApiService.handleApiCall('/api/admin/GetTourismCardByID/', { id }, (res) => {
+      this.Loader = false;
+
       if (res.response === 'Success' && res.data) {
-        this.id = id;
         const card = res.data;
 
+        // ✅ Patch form fields
         this.TourismForm.patchValue({
-          card_title: card.card_title,
-          card_description: card.card_description,
-          card_image: 'preloaded'
+          card_title: card.card_title || '',
+          card_description: card.card_description || '',
+          card_image: 'preloaded' // <-- important so validator passes
         });
 
-        this.imagePreview = environment.apiUrl + card.card_image;
-        this.showImageBox = true;
+        // ✅ Show image preview (same logic as Gallery)
+        if (card.card_image) {
+          this.imagePreview = environment.apiUrl + card.card_image;
+          this.showImageBox = true;
+          this.fileType = 'image/png'; // ensures *ngIf on image works
+        } else {
+          this.imagePreview = '';
+          this.showImageBox = false;
+          this.fileType = '';
+        }
+
+      } else {
+        this.showError(res.message || 'Failed to fetch tourism card details.');
       }
     });
   }
+
 
 
   handleCardOperation() {
@@ -156,7 +173,9 @@ export class TourismComponent {
 
   clearCard() { this.imagePreview = null; this.showImageBox = false; this.fileType = ''; this.TourismForm.patchValue({ card_image: null }); }
 
-  getImageUrl(path: string) { return `${environment.apiUrl}/${path}`; }
+  getImageUrl(path: string): string {
+    return `${environment.apiUrl}/${path}`;
+  }
 
   deleteFn() {
     if (!this.id) return;
@@ -166,11 +185,25 @@ export class TourismComponent {
     });
   }
 
+  toggleActiveInactive(id: number, status: string) {
+    this.Loader = true;
+    this.objApiService.handleApiCall('/api/admin/UpdateTourismCardStatus/', { id, status }, (res) => {
+      this.Loader = false;
+      if (res.response === 'Success') {
+        this.showSuccess(res.message || 'Status updated.');
+      } else {
+        this.showError(res.message || 'Failed to update status.');
+      }
+      this.getTableFn();
+    });
+  }
+
   eventFromTable(objEvent: any) {
     switch (objEvent.strOperation) {
       case 'EDIT_DATA': this.openCardModal(true, objEvent.objElement.id); break;
       case 'DELETE_DATA': this.id = objEvent.objElement.id; this.deleteModal = true; break;
       case 'SINGLEVIEW_DATA': this.selectedCard = objEvent.objElement; this.displaySingleViewModal = true; break;
+      case 'TOGGLETABLE_DATA': this.toggleActiveInactive(this.id = objEvent.objElement.id, objEvent.objElement.status); break;
     }
   }
 
