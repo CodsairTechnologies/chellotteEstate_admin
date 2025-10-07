@@ -38,14 +38,31 @@
                     <label class="form-label">Product ID</label>
                     <input type="text" class="form-control" formControlName="productID"
                         placeholder="Enter product ID" />
+                    <div class="text-danger mt-1"
+                        *ngIf="ProductForm.get('productID')?.touched && ProductForm.get('productID')?.invalid">
+                        Product ID is required
+                    </div>
                 </div>
+
+                <!-- Title -->
                 <div class="col-md-4">
                     <label class="form-label">Title</label>
                     <input type="text" class="form-control" formControlName="title" placeholder="Enter product title" />
+                    <div class="text-danger mt-1"
+                        *ngIf="ProductForm.get('title')?.touched && ProductForm.get('title')?.invalid">
+                        Title is required
+                    </div>
                 </div>
+
+                <!-- Price -->
                 <div class="col-md-4">
                     <label class="form-label">Price</label>
                     <input type="number" class="form-control" formControlName="price" placeholder="Enter price" />
+                    <div class="text-danger mt-1"
+                        *ngIf="ProductForm.get('price')?.touched && ProductForm.get('price')?.invalid">
+                        <span *ngIf="ProductForm.get('price')?.errors?.['required']">Price is required</span>
+                        <span *ngIf="ProductForm.get('price')?.errors?.['min']">Price must be greater than 0</span>
+                    </div>
                 </div>
             </div>
 
@@ -55,6 +72,10 @@
                     <label class="form-label">Description</label>
                     <textarea class="form-control" formControlName="description"
                         placeholder="Enter product description"></textarea>
+                    <div class="text-danger mt-1"
+                        *ngIf="ProductForm.get('description')?.touched && ProductForm.get('description')?.invalid">
+                        Description is required
+                    </div>
                 </div>
             </div>
 
@@ -72,6 +93,10 @@
                     <label class="form-label">Brand Name</label>
                     <input type="text" class="form-control" formControlName="brand_name"
                         placeholder="Enter brand name" />
+                    <div class="text-danger mt-1"
+                        *ngIf="ProductForm.get('brand_name')?.touched && ProductForm.get('brand_name')?.invalid">
+                        Brand Name is required
+                    </div>
                 </div>
                 <div class="col-md-4 d-flex align-items-center">
                     <div class="form-check mt-2">
@@ -82,60 +107,64 @@
                 </div>
             </div>
 
-            <!-- Images (no change) -->
-            <!-- Cover Image -->
-            <div class="mb-3">
-                <label>Cover Image</label>
-                <div class="img-card card mt-2">
-                    <div *ngIf="!showImageBox.cover_image">
-                        <button type="button" class="btn uploadbtn" (click)="coverInput.click()">Choose File</button>
-                        <input type="file" class="d-none" #coverInput (change)="onFileUpload($event,'cover_image')"
-                            accept="image/*">
+            <!-- Images: Cover, Background, Card Icon in single row -->
+            <div class="row mb-3">
+                <!-- Cover Image -->
+                <div class="col-md-4">
+                    <label>Cover Image</label>
+                    <div class="img-card card mt-2">
+                        <div *ngIf="!showImageBox.cover_image">
+                            <button type="button" class="btn uploadbtn" (click)="coverInput.click()">Choose
+                                File</button>
+                            <input type="file" class="d-none" #coverInput (change)="onFileUpload($event,'cover_image')"
+                                accept="image/*">
+                        </div>
+                        <div *ngIf="showImageBox.cover_image" class="img-div position-relative w-100">
+                            <img [src]="imagePreview.cover_image" class="img-preview img-fluid"
+                                style="width: 100%; height: 150px; object-fit: cover;" />
+                            <i class="bi bi-x-circle-fill position-absolute top-0 end-0 text-danger"
+                                style="cursor:pointer;" (click)="clearImage('cover_image')"></i>
+                        </div>
                     </div>
-                    <div *ngIf="showImageBox.cover_image" class="img-div position-relative w-100">
-                        <img *ngIf="showImageBox.cover_image" [src]="imagePreview.cover_image"
-                            class="img-preview img-fluid" style="width: 200px; height: 200px; object-fit: cover;" />
-                        <i class="bi bi-x-circle-fill position-absolute top-0 end-0 text-danger" style="cursor:pointer;"
-                            (click)="clearImage('cover_image')"></i>
+                </div>
+
+                <!-- Background Image -->
+                <div class="col-md-4">
+                    <label>Background Image</label>
+                    <div class="img-card card mt-2">
+                        <div *ngIf="!showImageBox.background_image">
+                            <button type="button" class="btn uploadbtn" (click)="bgInput.click()">Choose File</button>
+                            <input type="file" class="d-none" #bgInput
+                                (change)="onFileUpload($event,'background_image')" accept="image/*">
+                        </div>
+                        <div *ngIf="showImageBox.background_image" class="img-div position-relative w-100">
+                            <img [src]="imagePreview.background_image" class="img-preview img-fluid"
+                                style="width: 100%; height: 150px; object-fit: cover;" />
+                            <i class="bi bi-x-circle-fill position-absolute top-0 end-0 text-danger"
+                                style="cursor:pointer;" (click)="clearImage('background_image')"></i>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Card Icon -->
+                <div class="col-md-4">
+                    <label>Card Icon</label>
+                    <div class="img-card card mt-2">
+                        <div *ngIf="!showImageBox.card_icon">
+                            <button type="button" class="btn uploadbtn" (click)="iconInput.click()">Choose File</button>
+                            <input type="file" class="d-none" #iconInput (change)="onFileUpload($event,'card_icon')"
+                                accept="image/*">
+                        </div>
+                        <div *ngIf="showImageBox.card_icon" class="img-div position-relative w-100">
+                            <img [src]="imagePreview.card_icon" class="img-preview img-fluid"
+                                style="width: 100%; height: 150px; object-fit: cover;" />
+                            <i class="bi bi-x-circle-fill position-absolute top-0 end-0 text-danger"
+                                style="cursor:pointer;" (click)="clearImage('card_icon')"></i>
+                        </div>
                     </div>
                 </div>
             </div>
 
-            <!-- Background Image -->
-            <div class="mb-3">
-                <label>Background Image</label>
-                <div class="img-card card mt-2">
-                    <div *ngIf="!showImageBox.background_image">
-                        <button type="button" class="btn uploadbtn" (click)="bgInput.click()">Choose File</button>
-                        <input type="file" class="d-none" #bgInput (change)="onFileUpload($event,'background_image')"
-                            accept="image/*">
-                    </div>
-                    <div *ngIf="showImageBox.background_image" class="img-div position-relative w-100">
-                        <img *ngIf="showImageBox.background_image" [src]="imagePreview.background_image"
-                            class="img-preview img-fluid" style="width: 200px; height: 200px; object-fit: cover;" />
-                        <i class="bi bi-x-circle-fill position-absolute top-0 end-0 text-danger" style="cursor:pointer;"
-                            (click)="clearImage('background_image')"></i>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Card Icon -->
-            <div class="mb-3">
-                <label>Card Icon</label>
-                <div class="img-card card mt-2">
-                    <div *ngIf="!showImageBox.card_icon">
-                        <button type="button" class="btn uploadbtn" (click)="iconInput.click()">Choose File</button>
-                        <input type="file" class="d-none" #iconInput (change)="onFileUpload($event,'card_icon')"
-                            accept="image/*">
-                    </div>
-                    <div *ngIf="showImageBox.card_icon" class="img-div position-relative w-100">
-                        <img *ngIf="showImageBox.card_icon" [src]="imagePreview.card_icon" class="img-preview img-fluid"
-                            style="width: 200px; height: 200px; object-fit: cover;" />
-                        <i class="bi bi-x-circle-fill position-absolute top-0 end-0 text-danger" style="cursor:pointer;"
-                            (click)="clearImage('card_icon')"></i>
-                    </div>
-                </div>
-            </div>
 
         </form>
     </div>
@@ -192,32 +221,36 @@
             </div>
         </div>
 
-        <!-- Images: Cover, Background, Card Icon (same as Add/Edit modal positions) -->
-        <div class="mb-3">
-            <label>Cover Image</label>
-            <div class="img-card card mt-2">
-                <img *ngIf="selectedProduct.cover_image" [src]="getImageUrl(selectedProduct.cover_image)"
-                    class="img-preview img-fluid" style="width: 200px; height: 200px; object-fit: cover;" />
+        <!-- Images: Cover, Background, Card Icon in single row -->
+        <div class="row mb-3">
+            <!-- Cover Image -->
+            <div class="col-md-4">
+                <label>Cover Image</label>
+                <div class="img-card card mt-2">
+                    <img *ngIf="selectedProduct.cover_image" [src]="getImageUrl(selectedProduct.cover_image)"
+                        class="img-preview img-fluid" style="width: 100%; height: 150px; object-fit: cover;" />
+                </div>
+            </div>
+
+            <!-- Background Image -->
+            <div class="col-md-4">
+                <label>Background Image</label>
+                <div class="img-card card mt-2">
+                    <img *ngIf="selectedProduct.background_image" [src]="getImageUrl(selectedProduct.background_image)"
+                        class="img-preview img-fluid" style="width: 100%; height: 150px; object-fit: cover;" />
+                </div>
+            </div>
+
+            <!-- Card Icon -->
+            <div class="col-md-4">
+                <label>Card Icon</label>
+                <div class="img-card card mt-2">
+                    <img *ngIf="selectedProduct.card_icon" [src]="getImageUrl(selectedProduct.card_icon)"
+                        class="img-preview img-fluid" style="width: 100%; height: 150px; object-fit: cover;" />
+                </div>
             </div>
         </div>
 
-        <!-- Background Image -->
-        <div class="mb-3">
-            <label>Background Image</label>
-            <div class="img-card card mt-2">
-                <img *ngIf="selectedProduct.background_image" [src]="getImageUrl(selectedProduct.background_image)"
-                    class="img-preview img-fluid" style="width: 200px; height: 200px; object-fit: cover;" />
-            </div>
-        </div>
-
-        <!-- Card Icon -->
-        <div class="mb-3">
-            <label>Card Icon</label>
-            <div class="img-card card mt-2">
-                <img *ngIf="selectedProduct.card_icon" [src]="getImageUrl(selectedProduct.card_icon)"
-                    class="img-preview img-fluid" style="width: 200px; height: 200px; object-fit: cover;" />
-            </div>
-        </div>
 
     </div>
 </p-dialog>

@@ -52,8 +52,48 @@
                 </div>
             </div>
 
+            <!-- Images Row -->
+            <div class="row mb-3">
+                <!-- Image Left -->
+                <div class="col-md-6">
+                    <label class="form-label">Left Image <span class="required">*</span></label>
+                    <div class="img-card card mt-2">
+                        <div *ngIf="!showLeftImage">
+                            <button type="button" class="btn uploadbtn" (click)="leftFileInput.click()">Choose
+                                File</button>
+                            <input type="file" class="d-none" #leftFileInput (change)="onFileUpload($event, 'left')"
+                                accept="image/*" />
+                        </div>
+                        <div *ngIf="showLeftImage" class="img-div position-relative">
+                            <img [src]="leftImagePreview" class="img-preview img-fluid w-100" />
+                            <i class="bi bi-x-circle-fill position-absolute top-0 end-0 text-danger"
+                                style="cursor: pointer;" (click)="clearImage('left')"></i>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Image Right -->
+                <div class="col-md-6">
+                    <label class="form-label">Right Image <span class="required">*</span></label>
+                    <div class="img-card card mt-2">
+                        <div *ngIf="!showRightImage">
+                            <button type="button" class="btn uploadbtn" (click)="rightFileInput.click()">Choose
+                                File</button>
+                            <input type="file" class="d-none" #rightFileInput (change)="onFileUpload($event, 'right')"
+                                accept="image/*" />
+                        </div>
+                        <div *ngIf="showRightImage" class="img-div position-relative">
+                            <img [src]="rightImagePreview" class="img-preview img-fluid w-100" />
+                            <i class="bi bi-x-circle-fill position-absolute top-0 end-0 text-danger"
+                                style="cursor: pointer;" (click)="clearImage('right')"></i>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+
             <!-- Image Left -->
-            <div class="mb-3">
+            <!-- <div class="mb-3">
                 <label class="form-label">Left Image <span class="required">*</span></label>
                 <div class="img-card card mt-2">
                     <div *ngIf="!showLeftImage">
@@ -67,10 +107,10 @@
                             style="cursor: pointer;" (click)="clearImage('left')"></i>
                     </div>
                 </div>
-            </div>
+            </div> -->
 
             <!-- Image Right -->
-            <div class="mb-3">
+            <!-- <div class="mb-3">
                 <label class="form-label">Right Image <span class="required">*</span></label>
                 <div class="img-card card mt-2">
                     <div *ngIf="!showRightImage">
@@ -85,7 +125,7 @@
                             style="cursor: pointer;" (click)="clearImage('right')"></i>
                     </div>
                 </div>
-            </div>
+            </div> -->
         </form>
     </div>
 
@@ -99,7 +139,8 @@
     [closable]="true" [dismissableMask]="true">
     <div *ngIf="selectedAbout" class="singleview-body p-3">
         <h5>{{ selectedAbout.title }}</h5>
-        <p>{{ selectedAbout.description }}</p>
+        <!-- <p>{{ selectedAbout.description }}</p> -->
+        <p class="about-description">{{ selectedAbout.description }}</p>
         <div class="row">
             <div class="col text-center">
                 <img [src]="selectedAbout.image_left" class="img-fluid rounded"
@@ -110,8 +151,6 @@
                     style="width: 250px; height: 250px; object-fit: cover;" />
             </div>
         </div>
-
-
     </div>
 </p-dialog>
 

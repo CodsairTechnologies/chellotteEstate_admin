@@ -322,5 +322,12 @@
 }
 
 ::ng-deep .p-paginator {
-  display: none !important;
+    display: none !important;
+}
+
+.about-description {
+    font-size: 12px;
+    line-height: 1.5;
+    font-weight: 300;
+    color: black !important;
 }

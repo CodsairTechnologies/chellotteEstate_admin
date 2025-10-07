@@ -380,4 +380,8 @@
   display: none !important;
 }
 
+.description-text {
+    font-weight: 400; /* normal weight */
+    color: #333;      /* optional: standard text color */
+}
 

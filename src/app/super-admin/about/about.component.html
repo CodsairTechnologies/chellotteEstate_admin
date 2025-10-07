@@ -25,95 +25,99 @@
 </div>
 
 
-
 <!-- Add/Edit Modal -->
 <p-dialog [(visible)]="OpenModal" [modal]="true" [style]="{width:'50vw'}" [baseZIndex]="9000" [draggable]="false"
     [resizable]="false" [header]="modalHeader">
-    <form [formGroup]="AboutForm">
-        <div class="row">
-            <!-- Box Title nd Description -->
-            <div class="col-12 mb-3">
-                <label>Box Title *</label>
-                <input type="text" class="form-control" formControlName="box_title">
-            </div>
-            <div class="col-12 mb-3">
-                <label>Box Description</label>
-                <textarea class="form-control" formControlName="box_description"></textarea>
-            </div>
-            
-            <!-- Section 1 -->
-            <div class="col-12 col-md-6 mb-3">
-                <label>Section 1 Heading *</label>
-                <input type="text" class="form-control" formControlName="sec1_heading">
-            </div>
-            <div class="col-12 col-md-6 mb-3">
-                <label>Section 1 Subheading</label>
-                <input type="text" class="form-control" formControlName="sec1_subheading">
-            </div>
-            <div class="col-12 mb-3">
-                <label>Section 1 Description</label>
-                <textarea class="form-control" formControlName="sec1_description"></textarea>
-            </div>
-            <div class="col-12 mb-3">
-                <label>Section 1 Image</label>
-                <input type="file" class="form-control" (change)="onFileUpload($event, 'sec1_image')" accept="image/*">
-                <img *ngIf="showImageBox.sec1_image" [src]="imagePreview.sec1_image" class="img-fluid mt-2 fixed-img">
-            </div>
 
+    <div class="modal-body">
+        <form [formGroup]="AboutForm">
+            <div class="row">
+                <!-- Box Title and Description -->
+                <div class="col-12 mb-3">
+                    <label>Box Title *</label>
+                    <input type="text" class="form-control" formControlName="box_title">
+                </div>
+                <div class="col-12 mb-3">
+                    <label>Box Description</label>
+                    <textarea class="form-control" formControlName="box_description"></textarea>
+                </div>
 
-            <!-- Section 2 -->
-            <div class="col-12 col-md-6 mb-3">
-                <label>Section 2 Heading</label>
-                <input type="text" class="form-control" formControlName="sec2_heading">
-            </div>
-            <div class="col-12 col-md-6 mb-3">
-                <label>Section 2 Subheading</label>
-                <input type="text" class="form-control" formControlName="sec2_subheading">
-            </div>
-            <div class="col-12 mb-3">
-                <label>Section 2 Description</label>
-                <textarea class="form-control" formControlName="sec2_description"></textarea>
-            </div>
-            <div class="col-12 mb-3">
-                <label>Section 2 Image</label>
-                <input type="file" class="form-control" (change)="onFileUpload($event, 'sec2_image')" accept="image/*">
-                <img *ngIf="showImageBox.sec2_image" [src]="imagePreview.sec2_image" class="img-fluid mt-2 fixed-img">
-            </div>
+                <!-- Section 1 -->
+                <div class="col-12 col-md-6 mb-3">
+                    <label>Section 1 Heading *</label>
+                    <input type="text" class="form-control" formControlName="sec1_heading">
+                </div>
+                <div class="col-12 col-md-6 mb-3">
+                    <label>Section 1 Subheading</label>
+                    <input type="text" class="form-control" formControlName="sec1_subheading">
+                </div>
+                <div class="col-12 mb-3">
+                    <label>Section 1 Description</label>
+                    <textarea class="form-control" formControlName="sec1_description"></textarea>
+                </div>
+                <div class="col-12 mb-3">
+                    <label>Section 1 Image</label>
+                    <input type="file" class="form-control" (change)="onFileUpload($event, 'sec1_image')"
+                        accept="image/*">
+                    <img *ngIf="showImageBox.sec1_image" [src]="imagePreview.sec1_image"
+                        class="img-fluid mt-2 fixed-img">
+                </div>
 
+                <!-- Section 2 -->
+                <div class="col-12 col-md-6 mb-3">
+                    <label>Section 2 Heading</label>
+                    <input type="text" class="form-control" formControlName="sec2_heading">
+                </div>
+                <div class="col-12 col-md-6 mb-3">
+                    <label>Section 2 Subheading</label>
+                    <input type="text" class="form-control" formControlName="sec2_subheading">
+                </div>
+                <div class="col-12 mb-3">
+                    <label>Section 2 Description</label>
+                    <textarea class="form-control" formControlName="sec2_description"></textarea>
+                </div>
+                <div class="col-12 mb-3">
+                    <label>Section 2 Image</label>
+                    <input type="file" class="form-control" (change)="onFileUpload($event, 'sec2_image')"
+                        accept="image/*">
+                    <img *ngIf="showImageBox.sec2_image" [src]="imagePreview.sec2_image"
+                        class="img-fluid mt-2 fixed-img">
+                </div>
 
-            <!-- Section 3 -->
-            <div class="col-12 col-md-6 mb-3">
-                <label>Section 3 Heading</label>
-                <input type="text" class="form-control" formControlName="sec3_heading">
-            </div>
-            <div class="col-12 col-md-6 mb-3">
-                <label>Section 3 Subheading</label>
-                <input type="text" class="form-control" formControlName="sec3_subheading">
-            </div>
-            <div class="col-12 mb-3">
-                <label>Section 3 Description</label>
-                <textarea class="form-control" formControlName="sec3_description"></textarea>
-            </div>
-            <div class="col-12 mb-3">
-                <label>Section 3 Image</label>
-                <input type="file" class="form-control" (change)="onFileUpload($event, 'sec3_image')" accept="image/*">
-                <img *ngIf="showImageBox.sec3_image" [src]="imagePreview.sec3_image" class="img-fluid mt-2 fixed-img">
-            </div>
+                <!-- Section 3 -->
+                <div class="col-12 col-md-6 mb-3">
+                    <label>Section 3 Heading</label>
+                    <input type="text" class="form-control" formControlName="sec3_heading">
+                </div>
+                <div class="col-12 col-md-6 mb-3">
+                    <label>Section 3 Subheading</label>
+                    <input type="text" class="form-control" formControlName="sec3_subheading">
+                </div>
+                <div class="col-12 mb-3">
+                    <label>Section 3 Description</label>
+                    <textarea class="form-control" formControlName="sec3_description"></textarea>
+                </div>
+                <div class="col-12 mb-3">
+                    <label>Section 3 Image</label>
+                    <input type="file" class="form-control" (change)="onFileUpload($event, 'sec3_image')"
+                        accept="image/*">
+                    <img *ngIf="showImageBox.sec3_image" [src]="imagePreview.sec3_image"
+                        class="img-fluid mt-2 fixed-img">
+                </div>
 
-
-            <!-- Other fields -->
-            <div class="col-12 mb-3">
-                <label>Years of Experience</label>
-                <input type="number" class="form-control" formControlName="years_of_experience">
+                <!-- Other fields -->
+                <div class="col-12 mb-3">
+                    <label>Years of Experience</label>
+                    <input type="number" class="form-control" formControlName="years_of_experience">
+                </div>
             </div>
+        </form>
+    </div>
 
-        </div>
-    </form>
     <ng-template pTemplate="footer">
         <button type="button" pButton label="Save" class="submit-btn" (click)="handleAboutOperation()"></button>
     </ng-template>
 </p-dialog>
-
 
 <!-- Delete Modal -->
 <p-dialog [(visible)]="deleteModal" [modal]="true" [style]="{width:'35vw'}" [baseZIndex]="10000" [draggable]="false"
@@ -141,71 +145,72 @@
     </ng-template>
 </p-dialog>
 
-
 <!-- Single View Modal -->
 <p-dialog [(visible)]="displaySingleViewModal" header="About Page Details" [modal]="true" [style]="{width:'60vw'}"
     [closable]="true" [dismissableMask]="true">
 
-    <div *ngIf="selectedAbout" class="singleview-container">
+    <div *ngIf="selectedAbout" class="modal-body"> <!-- ✅ Added padding wrapper -->
 
         <!-- Box Title -->
-        <div class="singleview-section">
-            <h4>{{selectedAbout.box_title}}</h4>
-            <p><b>Box Description:</b> {{selectedAbout.box_description}}</p>
+        <div class="singleview-section mb-4">
+            <h4 class="mb-2">{{selectedAbout.box_title}}</h4>
+            <p class="description-text">{{selectedAbout.box_description}}</p>
         </div>
 
         <!-- Section 1 -->
-        <div class="singleview-section">
-            <h5>Section 1</h5>
-            <div class="section-content">
-                <div class="text-content">
-                    <p><b>Heading:</b> {{selectedAbout.sec1_heading}}</p>
-                    <p><b>Subheading:</b> {{selectedAbout.sec1_subheading}}</p>
-                    <p><b>Description:</b> {{selectedAbout.sec1_description}}</p>
+        <div class="singleview-section mb-4">
+            <!-- <h5 class="mb-3">Section 1</h5> -->
+            <div class="row align-items-center">
+                <div class="col-md-7">
+                    <p>{{selectedAbout.sec1_heading}}</p>
+                    <p>{{selectedAbout.sec1_subheading}}</p>
+                    <p class="description-text">{{selectedAbout.sec1_description}}</p>
                 </div>
-                <div class="image-content" *ngIf="selectedAbout.sec1_image">
-                    <img [src]="selectedAbout.sec1_image" class="singleview-image">
+                <div class="col-md-5 text-center" *ngIf="selectedAbout.sec1_image">
+                    <img [src]="selectedAbout.sec1_image" class="img-fluid rounded shadow-sm"
+                        style="max-width: 250px; height: auto;">
                 </div>
             </div>
         </div>
 
         <!-- Section 2 -->
-        <div class="singleview-section">
-            <h5>Section 2</h5>
-            <div class="section-content">
-                <div class="text-content">
-                    <p><b>Heading:</b> {{selectedAbout.sec2_heading}}</p>
-                    <p><b>Subheading:</b> {{selectedAbout.sec2_subheading}}</p>
-                    <p><b>Description:</b> {{selectedAbout.sec2_description}}</p>
+        <div class="singleview-section mb-4">
+            <!-- <h5 class="mb-3">Section 2</h5> -->
+            <div class="row align-items-center">
+                <div class="col-md-7">
+                    <p>{{selectedAbout.sec2_heading}}</p>
+                    <p>{{selectedAbout.sec2_subheading}}</p>
+                    <p class="description-text">{{selectedAbout.sec2_description}}</p>
                 </div>
-                <div class="image-content" *ngIf="selectedAbout.sec2_image">
-                    <img [src]="selectedAbout.sec2_image" class="singleview-image">
+                <div class="col-md-5 text-center" *ngIf="selectedAbout.sec2_image">
+                    <img [src]="selectedAbout.sec2_image" class="img-fluid rounded shadow-sm"
+                        style="max-width: 250px; height: auto;">
                 </div>
             </div>
         </div>
 
         <!-- Section 3 -->
-        <div class="singleview-section">
-            <h5>Section 3</h5>
-            <div class="section-content">
-                <div class="text-content">
-                    <p><b>Heading:</b> {{selectedAbout.sec3_heading}}</p>
-                    <p><b>Subheading:</b> {{selectedAbout.sec3_subheading}}</p>
-                    <p><b>Description:</b> {{selectedAbout.sec3_description}}</p>
+        <div class="singleview-section mb-4">
+            <!-- <h5 class="mb-3">Section 3</h5> -->
+            <div class="row align-items-center">
+                <div class="col-md-7">
+                    <p>{{selectedAbout.sec3_heading}}</p>
+                    <p>{{selectedAbout.sec3_subheading}}</p>
+                    <p class="description-text">{{selectedAbout.sec3_description}}</p>
                 </div>
-                <div class="image-content" *ngIf="selectedAbout.sec3_image">
-                    <img [src]="selectedAbout.sec3_image" class="singleview-image">
+                <div class="col-md-5 text-center" *ngIf="selectedAbout.sec3_image">
+                    <img [src]="selectedAbout.sec3_image" class="img-fluid rounded shadow-sm"
+                        style="max-width: 250px; height: auto;">
                 </div>
             </div>
         </div>
 
         <!-- Other Details -->
-        <div class="singleview-section">
-            <p><b>Years of Experience:</b> {{selectedAbout.years_of_experience}}</p>
+        <div class="singleview-section mb-3">
+            <p>Years of Experience: {{selectedAbout.years_of_experience}}</p>
         </div>
     </div>
 </p-dialog>
-
 
 <!-- Loader -->
 <div *ngIf="Loader" class="spinner-container">

@@ -53,16 +53,16 @@ export class ProductsComponent {
     this.adminid = localStorage.getItem("loginId");
 
     this.ProductForm = this.fb.group({
-      productID: [''],
+      productID: ['', Validators.required],
       title: ['', Validators.required],
-      description: [''],
-      price: ['', Validators.required],
-      availability: ['', Validators.required], // empty to show placeholder
-      brand_name: [''],
+      price: ['', [Validators.required, Validators.min(0.01)]],
+      description: ['', Validators.required],
+      availability: ['', Validators.required],
+      brand_name: ['', Validators.required],
       is_featured: [false],
-      cover_image: [null],
-      background_image: [null],
-      card_icon: [null],
+      cover_image: [null, Validators.required],
+      background_image: [null, Validators.required],
+      card_icon: [null, Validators.required]
     });
 
     this.getProductList();
@@ -90,6 +90,20 @@ export class ProductsComponent {
 
   // ==============================
 
+  // openProductModal(isEdit: boolean, id?: string) {
+  //   this.modalHeader = isEdit ? 'Edit Product' : 'Add Product';
+  //   this.OpenModal = true;
+
+  //   if (isEdit && id) {
+  //     this.id = id;
+  //     this.getProductById(id);
+  //   } else {
+  //     this.id = '';
+  //     this.ProductForm.reset({ availability: 'instock', is_featured: false });
+  //     this.imagePreview = { cover_image: '', background_image: '', card_icon: '' };
+  //     this.imageFiles = {};
+  //   }
+  // }
   openProductModal(isEdit: boolean, id?: string) {
     this.modalHeader = isEdit ? 'Edit Product' : 'Add Product';
     this.OpenModal = true;
@@ -102,8 +116,12 @@ export class ProductsComponent {
       this.ProductForm.reset({ availability: 'instock', is_featured: false });
       this.imagePreview = { cover_image: '', background_image: '', card_icon: '' };
       this.imageFiles = {};
+
+      // ✅ Reset the showImageBox so "Choose File" shows
+      this.showImageBox = { cover_image: false, background_image: false, card_icon: false };
     }
   }
+
 
   imagePreview: any = { cover_image: '', background_image: '', card_icon: '' };
   showImageBox: any = { cover_image: false, background_image: false, card_icon: false };
