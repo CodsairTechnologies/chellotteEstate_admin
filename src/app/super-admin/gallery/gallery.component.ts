@@ -93,6 +93,9 @@ export class GalleryComponent {
       this.getGalleryById(id);
     } else {
       this.id = '';
+      this.imagePreview = null;
+      this.showImageBox = false;
+      this.fileType = '';
       this.GalleryForm.reset();
     }
   }
@@ -159,8 +162,13 @@ export class GalleryComponent {
 
       if (res.response === 'Success') {
         this.showSuccess(res.message);
-        this.OpenModal = false;
         this.getGalleryList();
+        this.GalleryForm.reset();
+        this.imagePreview = null;
+        this.showImageBox = false;
+        this.fileType = '';
+        this.id = '';
+        this.OpenModal = false;
       } else {
         console.log('API callback:', res);
         this.showError(res.message || 'Something went wrong.');

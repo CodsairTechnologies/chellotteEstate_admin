@@ -88,22 +88,7 @@ export class ProductsComponent {
     });
   }
 
-  // ==============================
 
-  // openProductModal(isEdit: boolean, id?: string) {
-  //   this.modalHeader = isEdit ? 'Edit Product' : 'Add Product';
-  //   this.OpenModal = true;
-
-  //   if (isEdit && id) {
-  //     this.id = id;
-  //     this.getProductById(id);
-  //   } else {
-  //     this.id = '';
-  //     this.ProductForm.reset({ availability: 'instock', is_featured: false });
-  //     this.imagePreview = { cover_image: '', background_image: '', card_icon: '' };
-  //     this.imageFiles = {};
-  //   }
-  // }
   openProductModal(isEdit: boolean, id?: string) {
     this.modalHeader = isEdit ? 'Edit Product' : 'Add Product';
     this.OpenModal = true;
@@ -179,6 +164,7 @@ export class ProductsComponent {
     this.imagePreview[key] = '';
     this.fileType[key] = '';
     this.ProductForm.get(key)?.setValue(null);
+    delete this.imageFiles[key];
   }
 
   onFileUpload(event: any, key: string) {
@@ -187,6 +173,7 @@ export class ProductsComponent {
       this.imageFiles[key] = file;
       this.showImageBox[key] = true;
       this.fileType[key] = file.type;
+      this.ProductForm.get(key)?.setValue(file);
       const reader = new FileReader();
       reader.onload = (e: any) => {
         this.imagePreview[key] = e.target.result;
@@ -222,6 +209,8 @@ export class ProductsComponent {
       this.Loader = false;
       if (res.response === 'Success') {
         this.showSuccess(res.message);
+        this.ProductForm.reset({ availability: 'instock', is_featured: false });
+        ['cover_image', 'background_image', 'card_icon'].forEach(key => this.clearImage(key));
         this.OpenModal = false;
         this.getProductList();
       } else {
@@ -272,18 +261,6 @@ export class ProductsComponent {
   }
 
 
-
-  // onFileUpload(event: any, field: string) {
-  //   const file = event.target.files[0];
-  //   if (file) {
-  //     this.imageFiles[field] = file;
-  //     const reader = new FileReader();
-  //     reader.onload = (e: any) => {
-  //       this.imagePreview[field] = e.target.result;
-  //     };
-  //     reader.readAsDataURL(file);
-  //   }
-  // }
 
   eventFromTable(event: any) {
     switch (event.strOperation) {

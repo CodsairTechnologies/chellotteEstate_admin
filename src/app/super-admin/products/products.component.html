@@ -35,7 +35,7 @@
             <!-- Row 1: Product ID, Title, Price -->
             <div class="row mb-3">
                 <div class="col-md-4">
-                    <label class="form-label">Product ID</label>
+                    <label class="form-label">Product ID <span class="required">*</span></label>
                     <input type="text" class="form-control" formControlName="productID"
                         placeholder="Enter product ID" />
                     <div class="text-danger mt-1"
@@ -46,7 +46,7 @@
 
                 <!-- Title -->
                 <div class="col-md-4">
-                    <label class="form-label">Title</label>
+                    <label class="form-label">Title <span class="required">*</span></label>
                     <input type="text" class="form-control" formControlName="title" placeholder="Enter product title" />
                     <div class="text-danger mt-1"
                         *ngIf="ProductForm.get('title')?.touched && ProductForm.get('title')?.invalid">
@@ -56,7 +56,7 @@
 
                 <!-- Price -->
                 <div class="col-md-4">
-                    <label class="form-label">Price</label>
+                    <label class="form-label">Price <span class="required">*</span></label>
                     <input type="number" class="form-control" formControlName="price" placeholder="Enter price" />
                     <div class="text-danger mt-1"
                         *ngIf="ProductForm.get('price')?.touched && ProductForm.get('price')?.invalid">
@@ -69,7 +69,7 @@
             <!-- Row 2: Description -->
             <div class="row mb-3">
                 <div class="col-12">
-                    <label class="form-label">Description</label>
+                    <label class="form-label">Description <span class="required">*</span></label>
                     <textarea class="form-control" formControlName="description"
                         placeholder="Enter product description"></textarea>
                     <div class="text-danger mt-1"
@@ -90,7 +90,7 @@
                     </select>
                 </div>
                 <div class="col-md-4">
-                    <label class="form-label">Brand Name</label>
+                    <label class="form-label">Brand Name <span class="required">*</span></label>
                     <input type="text" class="form-control" formControlName="brand_name"
                         placeholder="Enter brand name" />
                     <div class="text-danger mt-1"
@@ -111,7 +111,7 @@
             <div class="row mb-3">
                 <!-- Cover Image -->
                 <div class="col-md-4">
-                    <label>Cover Image</label>
+                    <label>Cover Image <span class="required">*</span></label>
                     <div class="img-card card mt-2">
                         <div *ngIf="!showImageBox.cover_image">
                             <button type="button" class="btn uploadbtn" (click)="coverInput.click()">Choose
@@ -126,11 +126,15 @@
                                 style="cursor:pointer;" (click)="clearImage('cover_image')"></i>
                         </div>
                     </div>
+                    <div class="text-danger mt-1"
+                        *ngIf="ProductForm.get('cover_image')?.touched && ProductForm.get('cover_image')?.invalid">
+                        Cover image is required
+                    </div>
                 </div>
 
                 <!-- Background Image -->
                 <div class="col-md-4">
-                    <label>Background Image</label>
+                    <label>Background Image <span class="required">*</span></label>
                     <div class="img-card card mt-2">
                         <div *ngIf="!showImageBox.background_image">
                             <button type="button" class="btn uploadbtn" (click)="bgInput.click()">Choose File</button>
@@ -144,11 +148,15 @@
                                 style="cursor:pointer;" (click)="clearImage('background_image')"></i>
                         </div>
                     </div>
+                    <div class="text-danger mt-1"
+                        *ngIf="ProductForm.get('background_image')?.touched && ProductForm.get('background_image')?.invalid">
+                        Background image is required
+                    </div>
                 </div>
 
                 <!-- Card Icon -->
                 <div class="col-md-4">
-                    <label>Card Icon</label>
+                    <label>Card Icon <span class="required">*</span></label>
                     <div class="img-card card mt-2">
                         <div *ngIf="!showImageBox.card_icon">
                             <button type="button" class="btn uploadbtn" (click)="iconInput.click()">Choose File</button>
@@ -161,6 +169,10 @@
                             <i class="bi bi-x-circle-fill position-absolute top-0 end-0 text-danger"
                                 style="cursor:pointer;" (click)="clearImage('card_icon')"></i>
                         </div>
+                    </div>
+                    <div class="text-danger mt-1"
+                        *ngIf="ProductForm.get('card_icon')?.touched && ProductForm.get('card_icon')?.invalid">
+                        Cover image is required
                     </div>
                 </div>
             </div>
